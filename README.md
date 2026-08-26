@@ -29,3 +29,11 @@ The domain vocabulary is defined in `types/astra.ts`, fictional data is isolated
 ## Demo data disclosure
 
 Every capacity and travel signal is fictional. Freshness is represented by timestamps and visible labels; old data is downgraded in the scoring engine rather than presented as live availability. The “map” is a simulated visualization so the app can be demonstrated without external API keys.
+
+## Supabase and live location setup
+
+The client reads `EXPO_PUBLIC_SUPABASE_URL` and `EXPO_PUBLIC_SUPABASE_KEY` from secure project configuration. The supplied Supabase project was reachable through its Auth settings endpoint during validation. Run `supabase/schema.sql` once in the Supabase SQL Editor to create profiles, hospitals, specialists, emergencies, ambulances, audit events, and row-level security policies. The hospital staff screen reads and updates `public.hospitals` through `lib/supabase-hospital-repository.ts`; if tables are not yet present or the device is offline, it retains a local demo fallback and labels the state.
+
+Foreground GPS uses `expo-location` and requests permission before reading or watching the device position. The map screen uses `react-native-maps` on iOS and Android, shows the current position and hospital markers, and requests a Google Directions route when the restricted Google Maps key is available. The browser preview uses a non-native fallback because `react-native-maps` is a native module. A production build must restrict the Google key to the app’s iOS bundle identifier and Android package, enable the relevant Maps/Directions APIs, and rebuild the native binary after configuration changes.
+
+Authentication uses Supabase email/password sessions with persisted tokens and a profile role payload. The current form supports patient sign-in/sign-up; hospital and administrator authorization should be completed by inserting approved roles in `profiles` and enforcing the included RLS policies. Do not place a Supabase service-role key in the mobile app.

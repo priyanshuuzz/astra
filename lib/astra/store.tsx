@@ -19,6 +19,7 @@ type PersistedState = {
 type AstraContextValue = PersistedState & {
   hydrated: boolean;
   currentLocation: Coordinates;
+  setCurrentLocation: (location: Coordinates) => void;
   activeEmergency?: EmergencySession;
   setRole: (role: UserRole) => void;
   completeOnboarding: () => void;
@@ -46,6 +47,7 @@ export function AstraProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<PersistedState>(defaultState);
   const [hydrated, setHydrated] = useState(false);
   const [activeEmergency, setActiveEmergency] = useState<EmergencySession | undefined>();
+  const [liveLocation, setLiveLocation] = useState<Coordinates>(demoLocation);
 
   useEffect(() => {
     AsyncStorage.getItem(STORAGE_KEY)
@@ -60,11 +62,13 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     if (hydrated) AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(state)).catch(() => undefined);
   }, [state, hydrated]);
 
+  const setCurrentLocation = useCallback((location: Coordinates) => { setLiveLocation(location); setActiveEmergency((previous) => previous ? { ...previous, patientLocation: location } : previous); }, []);
+
   const addNotification = useCallback((title: string, body: string, level: AstraNotification["level"] = "info") => {
     setState((previous) => ({ ...previous, notifications: [createNotification(title, body, level, activeEmergency?.id), ...previous.notifications].slice(0, 30) }));
   }, [activeEmergency?.id]);
 
-  const beginEmergency = useCallback((type: EmergencyType, location = demoLocation) => {
+  const beginEmergency = useCallback((type: EmergencyType, location = liveLocation) => {
     const ranked = engine.rank(type, location, state.hospitals);
     const session: EmergencySession = {
       id: `ASTRA-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
@@ -79,7 +83,7 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     setActiveEmergency(session);
     setState((previous) => ({ ...previous, notifications: [createNotification("Emergency activated", `ASTRA is ranking suitable hospitals for ${type}.`, "urgent", session.id), ...previous.notifications] }));
     return session;
-  }, [state.hospitals]);
+  }, [state.hospitals, liveLocation]);
 
   const selectHospital = useCallback((hospitalId: string) => {
     setActiveEmergency((previous) => {
@@ -133,7 +137,8 @@ export function AstraProvider({ children }: { children: ReactNode }) {
   const value = useMemo<AstraContextValue>(() => ({
     ...state,
     hydrated,
-    currentLocation: activeEmergency?.patientLocation ?? demoLocation,
+    currentLocation: activeEmergency?.patientLocation ?? liveLocation,
+    setCurrentLocation,
     activeEmergency,
     setRole: (role) => setState((previous) => ({ ...previous, role })),
     completeOnboarding: () => setState((previous) => ({ ...previous, hasOnboarded: true })),
@@ -147,8 +152,8 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     addContact: (contact) => setState((previous) => ({ ...previous, contacts: [...previous.contacts, { ...contact, id: `contact-${Date.now()}` }].sort((a, b) => a.priority - b.priority) })),
     markContactsNotified: () => setActiveEmergency((previous) => previous ? { ...previous, contactsNotified: true, notes: [...previous.notes, "Emergency contacts alerted in simulated notification channel."] } : previous),
     addNotification,
-    resetDemo: () => { setState(defaultState); setActiveEmergency(undefined); },
-  }), [state, hydrated, activeEmergency, beginEmergency, selectHospital, requestAmbulance, updateAmbulanceStatus, setHospitalDecision, completeEmergency, addNotification]);
+    resetDemo: () => { setState(defaultState); setActiveEmergency(undefined); setLiveLocation(demoLocation); },
+  }), [state, hydrated, activeEmergency, liveLocation, beginEmergency, selectHospital, requestAmbulance, updateAmbulanceStatus, setHospitalDecision, completeEmergency, addNotification, setCurrentLocation]);
 
   return <AstraContext.Provider value={value}>{children}</AstraContext.Provider>;
 }

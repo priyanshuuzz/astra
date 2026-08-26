@@ -9,6 +9,7 @@ import { Platform } from "react-native";
 import "@/lib/_core/nativewind-pressable";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { AstraProvider } from "@/lib/astra/store";
+import { AuthProvider } from "@/lib/auth-context";
 import {
   SafeAreaFrameContext,
   SafeAreaInsetsContext,
@@ -83,6 +84,7 @@ export default function RootLayout() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <trpc.Provider client={trpcClient} queryClient={queryClient}>
         <QueryClientProvider client={queryClient}>
+          <AuthProvider>
           <AstraProvider>
           {/* Default to hiding native headers so raw route segments don't appear (e.g. "(tabs)", "products/[id]"). */}
           {/* If a screen needs the native header, explicitly enable it and set a human title via Stack.Screen options. */}
@@ -93,6 +95,7 @@ export default function RootLayout() {
           </Stack>
           <StatusBar style="dark" />
           </AstraProvider>
+          </AuthProvider>
         </QueryClientProvider>
       </trpc.Provider>
     </GestureHandlerRootView>

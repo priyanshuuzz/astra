@@ -14,3 +14,13 @@
 - [x] Write README, architecture documentation, environment example, and demo instructions
 - [x] Verify mobile presentation and save a delivery checkpoint
 - [x] Confirm delivery as a real iOS and Android mobile app, not a website; continue with Expo/React Native cross-platform implementation
+
+# Integration Requests
+
+- [x] Add Supabase project URL and publishable key configuration through secure project secrets
+- [x] Add Supabase schema, row-level security policies, and typed repository for hospitals, beds, specialists, emergencies, and audit events
+- [x] Add real user authentication with email/password session persistence and role-aware access
+- [x] Add real GPS permission handling, current-position updates, and manual fallback
+- [x] Add live map and ambulance routing provider integration with route/ETA refresh and degraded fallback
+- [x] Connect hospital staff dashboard reads and writes to Supabase with authenticated authorization
+- [ ] Add integration tests and verify mobile behavior on iOS and Android

@@ -5,6 +5,8 @@ import { useMemo } from "react";
 import { HospitalCard } from "@/components/astra/hospital-card";
 import { AstraScreen, DemoPill, PrimaryButton, SafetyNotice, SectionHeading, uiStyles } from "@/components/astra/ui";
 import { useAstra } from "@/lib/astra/store";
+import { useAuth } from "@/lib/auth-context";
+import { AuthForm } from "@/components/astra/auth-form";
 import { HospitalRecommendationEngine } from "@/lib/astra/recommendation";
 import type { EmergencyType } from "@/types/astra";
 
@@ -20,12 +22,15 @@ const emergencyShortcuts: { type: EmergencyType; label: string; icon: keyof type
 export default function HomeScreen() {
   const router = useRouter();
   const { hasOnboarded, completeOnboarding, hospitals, currentLocation, activeEmergency, role, setRole, beginEmergency } = useAstra();
+  const { user, loading: authLoading } = useAuth();
   const engine = useMemo(() => new HospitalRecommendationEngine(), []);
   const nearby = useMemo(() => engine.rank("general", currentLocation, hospitals).slice(0, 3), [currentLocation, hospitals, engine]);
 
   if (!hasOnboarded) {
     return <AstraScreen><View style={styles.onboarding}><View style={styles.brandMark}><MaterialIcons name="local-hospital" size={32} color="#FFFFFF" /></View><Text style={styles.brand}>ASTRA</Text><Text style={styles.tagline}>The right hospital.{"\n"}The fastest route.</Text><Text style={styles.intro}>A clear, coordinated path to emergency care using simulated availability, travel time, and clinical capability data.</Text><View style={styles.onboardSteps}><View style={styles.step}><Text style={styles.stepNumber}>01</Text><View><Text style={styles.stepTitle}>Find the right hospital instantly</Text><Text style={styles.stepBody}>See capability and capacity in one place.</Text></View></View><View style={styles.step}><Text style={styles.stepNumber}>02</Text><View><Text style={styles.stepTitle}>Know before you go</Text><Text style={styles.stepBody}>Freshness labels make uncertainty visible.</Text></View></View><View style={styles.step}><Text style={styles.stepNumber}>03</Text><View><Text style={styles.stepTitle}>Get there faster</Text><Text style={styles.stepBody}>Coordinate routes, ambulances, and contacts.</Text></View></View></View><SafetyNotice compact /><PrimaryButton label="Enable location & get started" icon="my-location" onPress={completeOnboarding} /><Text style={styles.disclaimer}>ASTRA is a demo coordination tool, not a diagnostic system or emergency service.</Text></View></AstraScreen>;
   }
+
+  if (!authLoading && !user) return <AstraScreen><ScrollView contentContainerStyle={styles.content}><View style={styles.authGate}><Text style={styles.authEyebrow}>SECURE ACCESS</Text><Text style={styles.authTitle}>Sign in to sync ASTRA</Text><Text style={styles.authBody}>Your authenticated session connects emergency coordination and authorized hospital operations to Supabase.</Text><AuthForm compact /><Text style={styles.localDemo}>Local demo mode is still available from the sign-in screen.</Text></View></ScrollView></AstraScreen>;
 
   return <AstraScreen><ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
     <View style={styles.header}><View><View style={styles.logoRow}><View style={styles.logoMini}><MaterialIcons name="local-hospital" size={18} color="#FFFFFF" /></View><Text style={styles.logoText}>ASTRA</Text><DemoPill /></View><View style={styles.locationRow}><MaterialIcons name="location-on" size={15} color="#0B78C6" /><Text style={styles.location}>{currentLocation.label}</Text><MaterialIcons name="keyboard-arrow-down" size={16} color="#536273" /></View></View><Pressable accessibilityRole="button" accessibilityLabel="Open profile" onPress={() => router.push("/profile" as never)} style={({ pressed }) => [styles.profileButton, pressed && uiStyles.pressed]}><MaterialIcons name="person-outline" size={21} color="#0B2942" /></Pressable></View>
@@ -91,4 +96,9 @@ const styles = StyleSheet.create({
   roleChipText: { color: "#536273", fontSize: 10, fontWeight: "800" },
   roleChipTextActive: { color: "#FFFFFF" },
   footer: { color: "#8A98A6", fontSize: 10, textAlign: "center", marginTop: 21, paddingHorizontal: 20 },
+  authGate: { paddingTop: 50, paddingHorizontal: 20 },
+  authEyebrow: { color: "#0B78C6", fontSize: 10, letterSpacing: 1, fontWeight: "900" },
+  authTitle: { color: "#0B2942", fontSize: 28, lineHeight: 34, fontWeight: "900", marginTop: 10 },
+  authBody: { color: "#536273", fontSize: 13, lineHeight: 19, marginTop: 8 },
+  localDemo: { color: "#748395", textAlign: "center", fontSize: 11, marginTop: 12 },
 });
