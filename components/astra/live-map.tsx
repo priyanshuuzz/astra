@@ -3,7 +3,7 @@ import type { Coordinates, Hospital } from "@/types/astra";
 import type { RoutePoint } from "@/lib/routing-service";
 import type { ReactElement } from "react";
 
-type Props = { location: Coordinates; hospitals: Hospital[]; selectedHospitalId?: string; ambulanceLocation?: Coordinates; routeCoordinates?: RoutePoint[] };
+type Props = { location: Coordinates; hospitals: Hospital[]; selectedHospitalId?: string; ambulanceLocation?: Coordinates; routeCoordinates?: RoutePoint[]; routeMode?: "live" | "fallback" };
 
 export function LiveMap(props: Props) {
   if (Platform.OS === "web") {

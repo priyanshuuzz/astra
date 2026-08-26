@@ -55,3 +55,11 @@
 - [x] Replace native map provider assumptions with a keyless provider abstraction suitable for Expo builds
 - [x] Update map attribution, privacy copy, and documentation for OpenStreetMap/open-source services
 - [x] Add deterministic tests for route decoding, provider fallback, and no-key native configuration
+
+# Acceptance Simulation and Coordinator UX
+
+- [x] Add a safe Supabase acceptance-row simulator that is opt-in and never runs automatically in production
+- [x] Add end-to-end alert-delivery verification for new, accepted, declined, timeout, and assigned-elsewhere events
+- [x] Add visible OpenStreetMap attribution to native and web map surfaces
+- [x] Add clear offline/direct-line fallback status and retry UI
+- [x] Add accepted-ambulance sound notification with mute/replay controls and native-safe fallback
