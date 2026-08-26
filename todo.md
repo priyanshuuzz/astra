@@ -39,3 +39,19 @@
 - [x] Add Hyderabad fictional demo registry and clearly label all simulated data
 - [x] Add resilient offline, stale-data, duplicate-request, rate-limit, and authorization states
 - [x] Add architecture and operational documentation for backend replacement, privacy, security, analytics, and deployment readiness
+
+# Realtime and Native Validation
+
+- [x] Add Supabase Realtime acceptance-event subscription service with channel cleanup and authenticated filtering
+- [x] Surface coordinator alerts for new requests, acceptances, declines, timeouts, and assigned-elsewhere events
+- [x] Add native GPS permission-state handling for denied, restricted, unavailable, and granted states
+- [x] Add native map configuration validation for iOS and Android Google Maps keys and route rendering fallback
+- [x] Add deterministic Realtime, alert, GPS-permission, and native-config tests
+
+# Open-Source Map and Routing Fallback
+
+- [x] Remove the required Google Maps key from ASTRA’s runtime path
+- [x] Add open-source route fetching with OSRM-compatible geometry and safe direct-line fallback
+- [x] Replace native map provider assumptions with a keyless provider abstraction suitable for Expo builds
+- [x] Update map attribution, privacy copy, and documentation for OpenStreetMap/open-source services
+- [x] Add deterministic tests for route decoding, provider fallback, and no-key native configuration

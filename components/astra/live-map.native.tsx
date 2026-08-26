@@ -1,30 +1,16 @@
-import MapView, { Marker, Polyline, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet } from "react-native";
+import { Map, Camera, Marker, GeoJSONSource, Layer, UserLocation } from "@maplibre/maplibre-react-native";
+import { StyleSheet, Text, View } from "react-native";
 import type { Coordinates, Hospital } from "@/types/astra";
 import type { RoutePoint } from "@/lib/routing-service";
 
+const MAP_STYLE = "https://demotiles.maplibre.org/style.json";
+const point = (item: { latitude: number; longitude: number }): [number, number] => [item.longitude, item.latitude];
+
 export function LiveMap({ location, hospitals, selectedHospitalId, ambulanceLocation, routeCoordinates }: { location: Coordinates; hospitals: Hospital[]; selectedHospitalId?: string; ambulanceLocation?: Coordinates; routeCoordinates?: RoutePoint[] }) {
   const selected = hospitals.find((item) => item.id === selectedHospitalId) ?? hospitals[0];
-  const route = routeCoordinates?.length ? routeCoordinates : selected ? [
-    { latitude: location.latitude, longitude: location.longitude },
-    { latitude: selected.location.latitude, longitude: selected.location.longitude },
-  ] : [];
-  return (
-    <MapView
-      provider={PROVIDER_GOOGLE}
-      style={styles.map}
-      showsUserLocation
-      showsMyLocationButton
-      initialRegion={{ latitude: location.latitude, longitude: location.longitude, latitudeDelta: 0.08, longitudeDelta: 0.08 }}
-    >
-      <Marker coordinate={{ latitude: location.latitude, longitude: location.longitude }} title="Your live location" pinColor="#C82E38" />
-      {hospitals.map((hospital) => (
-        <Marker key={hospital.id} coordinate={{ latitude: hospital.location.latitude, longitude: hospital.location.longitude }} title={hospital.name} description={`${hospital.readiness.toUpperCase()} · ICU ${hospital.beds.icu}`} pinColor={hospital.id === selectedHospitalId ? "#0B78C6" : hospital.readiness === "ready" ? "#1E7A52" : "#A86A00"} />
-      ))}
-      {ambulanceLocation && <Marker coordinate={{ latitude: ambulanceLocation.latitude, longitude: ambulanceLocation.longitude }} title="Ambulance" description="Live simulated position" pinColor="#A86A00" />}
-      {route.length > 1 && <Polyline coordinates={route} strokeColor="#0B78C6" strokeWidth={5} />}
-    </MapView>
-  );
+  const route = routeCoordinates?.length ? routeCoordinates : selected ? [{ latitude: location.latitude, longitude: location.longitude }, { latitude: selected.location.latitude, longitude: selected.location.longitude }] : [];
+  const routeShape = { type: "Feature" as const, properties: {}, geometry: { type: "LineString" as const, coordinates: route.map(point) } };
+  return <Map style={styles.map} mapStyle={MAP_STYLE}><Camera zoom={11} center={point(location)} /><UserLocation animated accuracy minDisplacement={10} /><Marker id="user" lngLat={point(location)}><Pin color="#C82E38" label="You" /></Marker>{hospitals.map((hospital) => <Marker key={hospital.id} id={hospital.id} lngLat={point(hospital.location)}><Pin color={hospital.id === selectedHospitalId ? "#0B78C6" : hospital.readiness === "ready" ? "#1E7A52" : "#A86A00"} label="Hospital" /></Marker>)}{ambulanceLocation && <Marker id="ambulance" lngLat={point(ambulanceLocation)}><Pin color="#A86A00" label="Ambulance" /></Marker>}{route.length > 1 && <GeoJSONSource id="astra-route" data={routeShape}><Layer id="astra-route-line" type="line" source="astra-route" style={{ lineColor: "#0B78C6", lineWidth: 4, lineOpacity: 0.85 }} /></GeoJSONSource>}</Map>;
 }
-
-const styles = StyleSheet.create({ map: { flex: 1 } });
+function Pin({ color, label }: { color: string; label: string }) { return <View style={[styles.pin, { backgroundColor: color }]}><Text style={styles.pinText}>{label.slice(0, 1)}</Text></View>; }
+const styles = StyleSheet.create({ map: { flex: 1 }, pin: { width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: "#FFFFFF", alignItems: "center", justifyContent: "center", shadowColor: "#0B2942", shadowOpacity: 0.22, shadowRadius: 4, elevation: 3 }, pinText: { color: "#FFFFFF", fontSize: 12, fontWeight: "900" } });

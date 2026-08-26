@@ -49,14 +49,12 @@ const config: ExpoConfig = {
   newArchEnabled: true,
   ios: {
     supportsTablet: true,
-    config: { googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY },
     bundleIdentifier: env.iosBundleId,
     "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
       }
   },
   android: {
-    config: { googleMaps: { apiKey: process.env.GOOGLE_MAPS_API_KEY } },
     adaptiveIcon: {
       backgroundColor: "#E6F4FE",
       foregroundImage: "./assets/images/android-icon-foreground.png",
@@ -88,6 +86,7 @@ const config: ExpoConfig = {
   },
   plugins: [
     "expo-router",
+    "@maplibre/maplibre-react-native",
     ["expo-location", { locationWhenInUsePermission: "ASTRA uses your location to find reachable emergency hospitals and coordinate your route." }],
     [
       "expo-audio",
