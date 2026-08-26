@@ -41,3 +41,9 @@ Authentication uses Supabase email/password sessions with persisted tokens and a
 ## Keyless map and routing
 
 ASTRA now uses an open-source provider path for the prototype. Native iOS and Android map rendering uses MapLibre React Native with an OpenStreetMap-derived demo style, while route geometry uses the OSRM-compatible HTTP API with a direct-line fallback when offline. The map surface must retain visible OpenStreetMap attribution. MapLibre native changes require a rebuilt development app; Expo Go alone cannot add native modules after installation. For production, replace demo tiles and the public OSRM endpoint with an owned or contracted provider and apply service-rate limits.
+
+## Real facility registry ingestion
+
+ASTRA includes a normalized snapshot of 169 facility records published by the Hyderabad District Government of Telangana at `data/real/hyderabad-government-facilities.json`. These records are public facility identity/location candidates, not live emergency-capacity claims; their capability and coordinates remain `pending_verification` until an authorized coordinator confirms them. The source assessment and links are documented in `docs/real-data-sources.md`.
+
+Run `python3 scripts/collect_hyderabad_facilities.py` to refresh the snapshot. To import it into Supabase, first run `supabase/schema.sql`, then use a server-only environment containing `SUPABASE_SERVICE_ROLE_KEY` and execute `ASTRA_IMPORT_REAL_DATA=1 pnpm exec tsx scripts/import_hyderabad_facilities.ts`. Never expose the service-role key to the mobile client. Import runs are recorded in `facility_import_runs`, raw provenance is retained, and records are intentionally not promoted to verified/live status automatically.

@@ -136,3 +136,53 @@ alter publication supabase_realtime add table public.acceptance_responses;
 insert into public.hospitals (name, type, address, phone, latitude, longitude, readiness, icu_available, emergency_beds_available, specialties, facilities, ambulance_available, traffic, data_source, is_verified)
 select 'Metro Trauma Institute', 'Teaching', '8 Civic Ring Road, Central District', '+91 00000 10001', 12.9785, 77.6040, 'ready', 4, 12, array['Trauma','Emergency Surgery','Anesthesia'], array['Level I Trauma Centre','CT','Blood Bank'], true, 'moderate', 'SUPABASE DEMO', true
 where not exists (select 1 from public.hospitals where name = 'Metro Trauma Institute');
+
+-- Real-data registry extension. Public directory records are identity/location candidates,
+-- not proof of emergency beds, specialists, or acceptance availability.
+alter table public.hospitals add column if not exists source_record_id text;
+alter table public.hospitals add column if not exists source_url text;
+alter table public.hospitals add column if not exists verification_status text not null default 'pending_verification' check (verification_status in ('pending_verification', 'verified', 'rejected', 'stale'));
+alter table public.hospitals add column if not exists source_updated_at timestamptz;
+alter table public.hospitals add column if not exists last_verified_at timestamptz;
+
+create table if not exists public.facility_registry (
+  id uuid primary key default gen_random_uuid(),
+  source_name text not null,
+  source_record_id text not null,
+  name text not null,
+  facility_category text not null default 'unknown',
+  administrative_group text,
+  address text not null default '',
+  latitude double precision,
+  longitude double precision,
+  map_url text,
+  source_url text not null,
+  source_retrieved_at timestamptz not null default now(),
+  verification_status text not null default 'pending_verification' check (verification_status in ('pending_verification', 'verified', 'rejected', 'stale')),
+  raw_payload jsonb not null default '{}',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  unique (source_name, source_record_id)
+);
+
+create table if not exists public.facility_import_runs (
+  id uuid primary key default gen_random_uuid(),
+  source_name text not null,
+  source_url text not null,
+  records_seen integer not null default 0,
+  records_upserted integer not null default 0,
+  records_rejected integer not null default 0,
+  imported_by uuid references auth.users(id),
+  started_at timestamptz not null default now(),
+  completed_at timestamptz,
+  status text not null default 'running' check (status in ('running', 'completed', 'failed')),
+  error_message text
+);
+
+alter table public.facility_registry enable row level security;
+alter table public.facility_import_runs enable row level security;
+create policy "authenticated users read facility registry" on public.facility_registry for select to authenticated using (true);
+create policy "staff manage facility registry" on public.facility_registry for all to authenticated using (public.is_staff_or_admin()) with check (public.is_staff_or_admin());
+create policy "staff read facility import runs" on public.facility_import_runs for select to authenticated using (public.is_staff_or_admin());
+create policy "staff insert facility import runs" on public.facility_import_runs for insert to authenticated with check (public.is_staff_or_admin());
+create policy "staff update facility import runs" on public.facility_import_runs for update to authenticated using (public.is_staff_or_admin()) with check (public.is_staff_or_admin());

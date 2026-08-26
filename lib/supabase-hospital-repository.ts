@@ -23,3 +23,12 @@ export async function updateLiveHospital(id: string, update: Partial<Pick<Hospit
   if (actorId) await supabase.from("audit_events").insert({ actor_id: actorId, entity_type: "hospital", entity_id: id, action: "update_capacity", payload });
   return toHospital(data);
 }
+
+export type FacilityRegistryRecord = { id: string; sourceName: string; sourceRecordId: string; name: string; facilityCategory: string; administrativeGroup?: string; address: string; latitude?: number; longitude?: number; mapUrl?: string; sourceUrl: string; sourceRetrievedAt: string; verificationStatus: "pending_verification" | "verified" | "rejected" | "stale" };
+
+export async function fetchFacilityRegistry(limit = 500): Promise<FacilityRegistryRecord[]> {
+  if (!supabase) return [];
+  const { data, error } = await supabase.from("facility_registry").select("id,source_name,source_record_id,name,facility_category,administrative_group,address,latitude,longitude,map_url,source_url,source_retrieved_at,verification_status").order("name").limit(limit);
+  if (error) throw error;
+  return (data ?? []).map((row: any) => ({ id: row.id, sourceName: row.source_name, sourceRecordId: row.source_record_id, name: row.name, facilityCategory: row.facility_category, administrativeGroup: row.administrative_group ?? undefined, address: row.address, latitude: row.latitude ?? undefined, longitude: row.longitude ?? undefined, mapUrl: row.map_url ?? undefined, sourceUrl: row.source_url, sourceRetrievedAt: row.source_retrieved_at, verificationStatus: row.verification_status }));
+}

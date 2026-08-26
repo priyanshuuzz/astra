@@ -63,3 +63,13 @@
 - [x] Add visible OpenStreetMap attribution to native and web map surfaces
 - [x] Add clear offline/direct-line fallback status and retry UI
 - [x] Add accepted-ambulance sound notification with mute/replay controls and native-safe fallback
+
+# Real Data and Backend
+
+- [x] Define real-data source hierarchy and healthcare safety boundaries
+- [x] Collect and normalize 169 official Hyderabad District Government facility records
+- [x] Add Supabase facility registry, provenance, verification, and import-run audit schema
+- [x] Add server-only opt-in Supabase importer and repository access for facility records
+- [x] Document real-data source links, freshness, privacy, and service-key boundaries
+- [ ] Add authorized hospital coordinator feeds for live beds, specialists, acceptance, and ambulance status
+- [ ] Promote reviewed facility records into verified routing candidates after coordinate/capability validation

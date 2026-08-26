@@ -1,0 +1,3217 @@
+{
+  "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+  "retrieved_at": "2026-08-26T17:47:11.354162+00:00",
+  "records": [
+    {
+      "source_record_id": "hyderabad-gov-1",
+      "name": "Milathnagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Milathnagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/9XHpHxsq24htSzKXA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "1",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Milathnagar BD",
+        "map_url": "https://goo.gl/maps/9XHpHxsq24htSzKXA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-2",
+      "name": "Chandrayanagutta New Indira Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Chandrayanagutta New Indira Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/RyyEMkdoRf4HQ9zb7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "2",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Chandrayanagutta New Indira Nagar BD",
+        "map_url": "https://goo.gl/maps/RyyEMkdoRf4HQ9zb7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-3",
+      "name": "EWS Colony CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "EWS Colony CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/BwnAxbUeaHpxNyfu9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "3",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "EWS Colony CH BD",
+        "map_url": "https://goo.gl/maps/BwnAxbUeaHpxNyfu9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-4",
+      "name": "Hashimabad BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Hashimabad BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/Zv9kEjG8aDLavHS99",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "4",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Hashimabad BD",
+        "map_url": "https://maps.app.goo.gl/Zv9kEjG8aDLavHS99"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-5",
+      "name": "Naqri Ka Pool Bagh BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Naqri Ka Pool Bagh BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/CRHQyddfu3ca35vbA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "5",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Naqri Ka Pool Bagh BD",
+        "map_url": "https://maps.app.goo.gl/CRHQyddfu3ca35vbA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-6",
+      "name": "Bahadur Yar Jung BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Bahadur Yar Jung BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/g3bDecAZqKtm3xcX8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "6",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Bahadur Yar Jung BD",
+        "map_url": "https://maps.app.goo.gl/g3bDecAZqKtm3xcX8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-7",
+      "name": "Tallakunta Community Hall BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Tallakunta Community Hall BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/d9yCjC5MQPe2ytKY9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "7",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Tallakunta Community Hall BD",
+        "map_url": "https://goo.gl/maps/d9yCjC5MQPe2ytKY9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-8",
+      "name": "Majid-E-Omer Farooq BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Majid-E-Omer Farooq BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/RupwBSEnphyJYoF76",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "8",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Majid-E-Omer Farooq BD",
+        "map_url": "https://goo.gl/maps/RupwBSEnphyJYoF76"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-9",
+      "name": "Arundathi Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Arundathi Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/WhdLpmHwANtuvQ25A",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "9",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Arundathi Colony BD",
+        "map_url": "https://goo.gl/maps/WhdLpmHwANtuvQ25A"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-10",
+      "name": "Fateh Shah Nagar Jama Masjid BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Fateh Shah Nagar Jama Masjid BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/aDDDe9Gm1cJtLxJfA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "10",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Fateh Shah Nagar Jama Masjid BD",
+        "map_url": "https://maps.app.goo.gl/aDDDe9Gm1cJtLxJfA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-11",
+      "name": "Riyasath Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Riyasath Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/h7u4hVwEMQsHLjBY8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "11",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Riyasath Nagar BD",
+        "map_url": "https://goo.gl/maps/h7u4hVwEMQsHLjBY8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-12",
+      "name": "Riyasathnagar Library Building BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Riyasathnagar Library Building BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/EnchyoBX6KCK7L6J6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "12",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Riyasathnagar Library Building BD",
+        "map_url": "https://goo.gl/maps/EnchyoBX6KCK7L6J6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-13",
+      "name": "Chandrayangutta Kummariwadi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Chandrayangutta Kummariwadi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/GHDBdL7BGWAtfKiq5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "13",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Chandrayangutta Kummariwadi BD",
+        "map_url": "https://goo.gl/maps/GHDBdL7BGWAtfKiq5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-14",
+      "name": "Rajanna Thota BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Rajanna Thota BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/ReZdnVxxEzTbsPVj6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "14",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Rajanna Thota BD",
+        "map_url": "https://goo.gl/maps/ReZdnVxxEzTbsPVj6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-15",
+      "name": "GM Chowni BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "GM Chowni BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/9M3fRUS8BNM3AwRi6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "15",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "GM Chowni BD",
+        "map_url": "https://goo.gl/maps/9M3fRUS8BNM3AwRi6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-16",
+      "name": "Nimra Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Barkas",
+      "address": "Nimra Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/MCc77W7SMHVo5JP86",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "16",
+        "uhnc": "UHNC-Barkas",
+        "published_name": "Nimra Colony BD",
+        "map_url": "https://goo.gl/maps/MCc77W7SMHVo5JP86"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-17",
+      "name": "Meer Sagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Meer Sagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/dUSxQMPTjevZcPUKA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "17",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Meer Sagar BD",
+        "map_url": "https://goo.gl/maps/dUSxQMPTjevZcPUKA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-18",
+      "name": "Achireddy Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Achireddy Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/aMEVfikUpAtK9V5p7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "18",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Achireddy Nagar CH BD",
+        "map_url": "https://goo.gl/maps/aMEVfikUpAtK9V5p7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-19",
+      "name": "Fathima Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Fathima Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/bGk69SypREY9zRWJ8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "19",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Fathima Nagar BD",
+        "map_url": "https://goo.gl/maps/bGk69SypREY9zRWJ8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-20",
+      "name": "Vattipally BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Vattipally BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/nXutq3n2wx6YudpU7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "20",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Vattipally BD",
+        "map_url": "https://goo.gl/maps/nXutq3n2wx6YudpU7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-21",
+      "name": "Rooplalbazar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Rooplalbazar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/nYi1YQU9igqDDPeh6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "21",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Rooplalbazar BD",
+        "map_url": "https://goo.gl/maps/nYi1YQU9igqDDPeh6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-22",
+      "name": "Patel Nagar Community Hall BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Patel Nagar Community Hall BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/d63XKQ2DyChYHvXJ7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "22",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Patel Nagar Community Hall BD",
+        "map_url": "https://goo.gl/maps/d63XKQ2DyChYHvXJ7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-23",
+      "name": "Sallar E- Milath Ghaji banda BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Sallar E- Milath Ghaji banda BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/NwxLzDbWXHHTXJXk9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "23",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Sallar E- Milath Ghaji banda BD",
+        "map_url": "https://goo.gl/maps/NwxLzDbWXHHTXJXk9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-24",
+      "name": "Shalibanda Kummariwadi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Jangammet",
+      "address": "Shalibanda Kummariwadi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/zjdB1Ft2qhXuwn4Q9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "24",
+        "uhnc": "UHNC-Jangammet",
+        "published_name": "Shalibanda Kummariwadi BD",
+        "map_url": "https://goo.gl/maps/zjdB1Ft2qhXuwn4Q9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-25",
+      "name": "Nimra Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Nimra Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/eRZGucZhkv472bhm7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "25",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Nimra Colony BD",
+        "map_url": "https://goo.gl/maps/eRZGucZhkv472bhm7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-26",
+      "name": "Aman nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Aman nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/1DgLgraudhgz3suTA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "26",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Aman nagar BD",
+        "map_url": "https://goo.gl/maps/1DgLgraudhgz3suTA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-27",
+      "name": "Siddique nagar Community Hall, BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Siddique nagar Community Hall, BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/YMU4tk84Ni4YhBYV8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "27",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Siddique nagar Community Hall, BD",
+        "map_url": "https://maps.app.goo.gl/YMU4tk84Ni4YhBYV8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-28",
+      "name": "Sulthanshahi Play Ground BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Sulthanshahi Play Ground BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Zjz2NhsXA8gN8fRW9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "28",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Sulthanshahi Play Ground BD",
+        "map_url": "https://goo.gl/maps/Zjz2NhsXA8gN8fRW9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-29",
+      "name": "Chandrakiran Basti CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Chandrakiran Basti CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/J3tj9Tqz6Dr1ab12A",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "29",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Chandrakiran Basti CH BD",
+        "map_url": "https://goo.gl/maps/J3tj9Tqz6Dr1ab12A"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-30",
+      "name": "Jalakuncha BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Jalakuncha BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/z6UGGA4eAEd67UBR9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "30",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Jalakuncha BD",
+        "map_url": "https://goo.gl/maps/z6UGGA4eAEd67UBR9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-31",
+      "name": "Doodbowli ITI CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Doodbowli ITI CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/KGGMmyHjtZwv8LzS6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "31",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Doodbowli ITI CH BD",
+        "map_url": "https://goo.gl/maps/KGGMmyHjtZwv8LzS6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-32",
+      "name": "Mochi colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Surajbhan",
+      "address": "Mochi colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/AC9cc3jETU1zHyz79",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "32",
+        "uhnc": "UHNC-Surajbhan",
+        "published_name": "Mochi colony BD",
+        "map_url": "https://goo.gl/maps/AC9cc3jETU1zHyz79"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-33",
+      "name": "Pather Ka Makhan BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Pather Ka Makhan BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/2h6P3o2kBMoNWWmJ8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "33",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Pather Ka Makhan BD",
+        "map_url": "https://goo.gl/maps/2h6P3o2kBMoNWWmJ8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-34",
+      "name": "Bhag -e \u2013 Jhara CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Bhag -e \u2013 Jhara CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": null,
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "34",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Bhag -e \u2013 Jhara CH BD",
+        "map_url": null
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-35",
+      "name": "Balashetty Kheth Play Ground BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Balashetty Kheth Play Ground BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/XWBwdsGMTyg7Lkn68",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "35",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Balashetty Kheth Play Ground BD",
+        "map_url": "https://goo.gl/maps/XWBwdsGMTyg7Lkn68"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-36",
+      "name": "Dharabjungally CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Dharabjungally CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/gCFV1PN9fKuKsF4V7?g_st=iw",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "36",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Dharabjungally CH BD",
+        "map_url": "https://maps.app.goo.gl/gCFV1PN9fKuKsF4V7?g_st=iw"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-37",
+      "name": "Kaladera BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Kaladera BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/WnRRWvyBSAhiFGSC7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "37",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Kaladera BD",
+        "map_url": "https://goo.gl/maps/WnRRWvyBSAhiFGSC7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-38",
+      "name": "Rein Bazar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Rein Bazar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/w6C7w3itsUdgQMPa8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "38",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Rein Bazar BD",
+        "map_url": "https://goo.gl/maps/w6C7w3itsUdgQMPa8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-39",
+      "name": "Murutuza nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Murutuza nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/qAQ4FPsrEzAVh74J7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "39",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Murutuza nagar CH BD",
+        "map_url": "https://goo.gl/maps/qAQ4FPsrEzAVh74J7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-40",
+      "name": "Guddi Bowli BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Guddi Bowli BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/ny7nTJkRZZ56437R9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "40",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Guddi Bowli BD",
+        "map_url": "https://goo.gl/maps/ny7nTJkRZZ56437R9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-41",
+      "name": "Madannapet CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Dabeerpura",
+      "address": "Madannapet CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/QCoFZWpPGsQURauQ6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "41",
+        "uhnc": "UHNC-Dabeerpura",
+        "published_name": "Madannapet CH BD",
+        "map_url": "https://goo.gl/maps/QCoFZWpPGsQURauQ6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-42",
+      "name": "Kranthi Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Kranthi Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/jnxSSWoqPTV7YytA9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "42",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Kranthi Nagar BD",
+        "map_url": "https://goo.gl/maps/jnxSSWoqPTV7YytA9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-43",
+      "name": "Shankar Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Shankar Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/5yEBJjdJfVX95ohU9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "43",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Shankar Nagar BD",
+        "map_url": "https://goo.gl/maps/5yEBJjdJfVX95ohU9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-44",
+      "name": "Papaiah Basthi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Papaiah Basthi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/x8XNvBSchQvM1W4e6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "44",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Papaiah Basthi BD",
+        "map_url": "https://goo.gl/maps/x8XNvBSchQvM1W4e6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-45",
+      "name": "Wahed Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Wahed Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/LiEiCC5cZ366tASu7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "45",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Wahed Nagar BD",
+        "map_url": "https://goo.gl/maps/LiEiCC5cZ366tASu7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-46",
+      "name": "Dr.Zakir hussain colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Dr.Zakir hussain colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/z8yk7zfFSubPZTwB7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "46",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Dr.Zakir hussain colony BD",
+        "map_url": "https://goo.gl/maps/z8yk7zfFSubPZTwB7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-47",
+      "name": "Kamal Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Kamal Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/gE9CUmZUVKrxRZbJ6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "47",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Kamal Nagar BD",
+        "map_url": "https://goo.gl/maps/gE9CUmZUVKrxRZbJ6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-48",
+      "name": "Subramanya Nagar Residents Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Subramanya Nagar Residents Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/PXYHAScSotEueVHs8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "48",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Subramanya Nagar Residents Colony BD",
+        "map_url": "https://goo.gl/maps/PXYHAScSotEueVHs8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-49",
+      "name": "Kalander nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Kalander nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/u1W4cpWMrLQQQ13T6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "49",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Kalander nagar CH BD",
+        "map_url": "https://goo.gl/maps/u1W4cpWMrLQQQ13T6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-50",
+      "name": "Santosh Nagar Jawahar Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Santosh Nagar Jawahar Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/kz95bVEGYQZ1F3Fy6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "50",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Santosh Nagar Jawahar Nagar CH BD",
+        "map_url": "https://goo.gl/maps/kz95bVEGYQZ1F3Fy6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-51",
+      "name": "Vikas Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Vikas Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Jr8AghfB3S99hDyJA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "51",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Vikas Nagar BD",
+        "map_url": "https://goo.gl/maps/Jr8AghfB3S99hDyJA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-52",
+      "name": "Mamabakthawar Ghat BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Mamabakthawar Ghat BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/PsSJWP38yGxDB4Pz5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "52",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Mamabakthawar Ghat BD",
+        "map_url": "https://maps.app.goo.gl/PsSJWP38yGxDB4Pz5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-53",
+      "name": "Anand Nagar Mahila Mandali BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Anand Nagar Mahila Mandali BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/dfiLjKgLYzf4RDBP6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "53",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Anand Nagar Mahila Mandali BD",
+        "map_url": "https://goo.gl/maps/dfiLjKgLYzf4RDBP6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-54",
+      "name": "Sapota Bagh BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Sapota Bagh BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/AvRsVS8nbVpFXtcm7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "54",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Sapota Bagh BD",
+        "map_url": "https://goo.gl/maps/AvRsVS8nbVpFXtcm7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-55",
+      "name": "Gaddiannaram BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Gaddiannaram BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/MGFwqeYMVdZXmJip",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "55",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Gaddiannaram BD",
+        "map_url": "https://maps.app.goo.gl/MGFwqeYMVdZXmJip"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-56",
+      "name": "Balamma Danamma BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Balamma Danamma BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/AZX45VV74rhMnuce9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "56",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Balamma Danamma BD",
+        "map_url": "https://goo.gl/maps/AZX45VV74rhMnuce9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-57",
+      "name": "Saleem Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Malakpet",
+      "address": "Saleem Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/RxXtUaBENLDQq7ww9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "57",
+        "uhnc": "UHNC-Malakpet",
+        "published_name": "Saleem Nagar BD",
+        "map_url": "https://goo.gl/maps/RxXtUaBENLDQq7ww9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-58",
+      "name": "Prem nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Prem nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/gJ6v5KWfG8Lv5ybi8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "58",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Prem nagar BD",
+        "map_url": "https://maps.app.goo.gl/gJ6v5KWfG8Lv5ybi8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-59",
+      "name": "Bakaram BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Bakaram BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/EBXRRnjpzN4qngid6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "59",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Bakaram BD",
+        "map_url": "https://goo.gl/maps/EBXRRnjpzN4qngid6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-60",
+      "name": "Mother Dairy BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Mother Dairy BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/SguRehqQa4URrsKC9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "60",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Mother Dairy BD",
+        "map_url": "https://goo.gl/maps/SguRehqQa4URrsKC9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-61",
+      "name": "Medibavi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Medibavi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/JMa1uuSFUxDeu8gw6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "61",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Medibavi CH BD",
+        "map_url": "https://maps.app.goo.gl/JMa1uuSFUxDeu8gw6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-62",
+      "name": "PochammaBasti CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "PochammaBasti CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/HY9X22fGHLGiWYoV8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "62",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "PochammaBasti CH BD",
+        "map_url": "https://goo.gl/maps/HY9X22fGHLGiWYoV8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-63",
+      "name": "Musheerabad Wallyball Playground BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Musheerabad Wallyball Playground BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/WsJSJ4qA9jgjzgE39",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "63",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Musheerabad Wallyball Playground BD",
+        "map_url": "https://goo.gl/maps/WsJSJ4qA9jgjzgE39"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-64",
+      "name": "Ganga Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Ganga Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/65EXyaPP2uhayw7r8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "64",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Ganga Nagar BD",
+        "map_url": "https://goo.gl/maps/65EXyaPP2uhayw7r8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-65",
+      "name": "Moulana Azad Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Moulana Azad Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/XXjcGXEWypKJXevx9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "65",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Moulana Azad Nagar CH BD",
+        "map_url": "https://goo.gl/maps/XXjcGXEWypKJXevx9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-66",
+      "name": "Sundernagar Community hall BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Sundernagar Community hall BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/kxbrjC8g5CfYHV1v6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "66",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Sundernagar Community hall BD",
+        "map_url": "https://maps.app.goo.gl/kxbrjC8g5CfYHV1v6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-67",
+      "name": "Narsimha basthi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Narsimha basthi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Kz2xaNfY1bnrAyjf6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "67",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Narsimha basthi BD",
+        "map_url": "https://goo.gl/maps/Kz2xaNfY1bnrAyjf6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-68",
+      "name": "Bathukamma Kunta BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Bathukamma Kunta BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/QEWTAt3pSSwSrTRy5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "68",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Bathukamma Kunta BD",
+        "map_url": "https://goo.gl/maps/QEWTAt3pSSwSrTRy5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-69",
+      "name": "Tilak Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Amberpet",
+      "address": "Tilak Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/w4D57ZATpgP8bzam8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "69",
+        "uhnc": "UHNC-Amberpet",
+        "published_name": "Tilak Nagar BD",
+        "map_url": "https://maps.app.goo.gl/w4D57ZATpgP8bzam8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-70",
+      "name": "Bondalaguda CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Bondalaguda CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/4LT32c4yf5aEfFAz9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "70",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Bondalaguda CH BD",
+        "map_url": "https://goo.gl/maps/4LT32c4yf5aEfFAz9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-71",
+      "name": "Challapura Gymnasium BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Challapura Gymnasium BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/XR57Ugtx7gffg2mP9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "71",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Challapura Gymnasium BD",
+        "map_url": "https://goo.gl/maps/XR57Ugtx7gffg2mP9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-72",
+      "name": "Jiyaguda MCH Colony 2 BHK Houses BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Jiyaguda MCH Colony 2 BHK Houses BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/bpR2AC1MpZABYDp96",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "72",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Jiyaguda MCH Colony 2 BHK Houses BD",
+        "map_url": "https://goo.gl/maps/bpR2AC1MpZABYDp96"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-73",
+      "name": "Goshamahal Ambedkar Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Goshamahal Ambedkar Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/1VUsEXtD8Bqqvr2j9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "73",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Goshamahal Ambedkar Nagar BD",
+        "map_url": "https://goo.gl/maps/1VUsEXtD8Bqqvr2j9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-74",
+      "name": "Shivlal Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Shivlal Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/1Vb5iGo4jZQjspZp7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "74",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Shivlal Nagar CH BD",
+        "map_url": "https://goo.gl/maps/1Vb5iGo4jZQjspZp7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-75",
+      "name": "Kamatipura CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Kamatipura CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/xG7aFwDP4KtwEWpWA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "75",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Kamatipura CH BD",
+        "map_url": "https://goo.gl/maps/xG7aFwDP4KtwEWpWA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-76",
+      "name": "Chiragali CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Chiragali CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/SWCDgJwYmhpyzeZr7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "76",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Chiragali CH BD",
+        "map_url": "https://goo.gl/maps/SWCDgJwYmhpyzeZr7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-77",
+      "name": "Malladi Thaleem BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Malladi Thaleem BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/sRCtAKj5aDheDvmVA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "77",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Malladi Thaleem BD",
+        "map_url": "https://goo.gl/maps/sRCtAKj5aDheDvmVA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-78",
+      "name": "Allahmajid CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Panipura",
+      "address": "Allahmajid CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/FRiB67S19i9cYR5b7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "78",
+        "uhnc": "UHNC-Panipura",
+        "published_name": "Allahmajid CH BD",
+        "map_url": "https://goo.gl/maps/FRiB67S19i9cYR5b7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-79",
+      "name": "Dattatreya nagar, BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Dattatreya nagar, BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/6uoQDCaCYDGVfwjPA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "79",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Dattatreya nagar, BD",
+        "map_url": "https://goo.gl/maps/6uoQDCaCYDGVfwjPA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-80",
+      "name": "Mujahid Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Mujahid Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/YoV9CMjYkXQWEQmW9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "80",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Mujahid Nagar CH BD",
+        "map_url": "https://goo.gl/maps/YoV9CMjYkXQWEQmW9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-81",
+      "name": "BC Vaddera basthi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "BC Vaddera basthi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/P6yRafiAo8f52B1e6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "81",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "BC Vaddera basthi CH BD",
+        "map_url": "https://goo.gl/maps/P6yRafiAo8f52B1e6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-82",
+      "name": "Syednagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Syednagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/j5kUV5Q9ZkKQSE3b8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "82",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Syednagar BD",
+        "map_url": "https://goo.gl/maps/j5kUV5Q9ZkKQSE3b8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-83",
+      "name": "Red hills BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Red hills BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/cDKcF12diejGhYaB6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "83",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Red hills BD",
+        "map_url": "https://goo.gl/maps/cDKcF12diejGhYaB6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-84",
+      "name": "Mangar Basthi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Mangar Basthi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/WtUEHeGjbkK2uS666",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "84",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Mangar Basthi BD",
+        "map_url": "https://goo.gl/maps/WtUEHeGjbkK2uS666"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-85",
+      "name": "Zakir Hussain CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Zakir Hussain CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/suFKQG1wgSmcZyBv8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "85",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Zakir Hussain CH BD",
+        "map_url": "https://goo.gl/maps/suFKQG1wgSmcZyBv8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-86",
+      "name": "Gun Foundary BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Gun Foundary BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/LaV4J7noZJrQBkBJ8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "86",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Gun Foundary BD",
+        "map_url": "https://goo.gl/maps/LaV4J7noZJrQBkBJ8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-87",
+      "name": "Phool Bagh BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Phool Bagh BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/2aXBfSH8yASBCPkw5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "87",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Phool Bagh BD",
+        "map_url": "https://goo.gl/maps/2aXBfSH8yASBCPkw5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-88",
+      "name": "Mahabharath Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Mahabharath Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/N2n3quvCLWbFARAG9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "88",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Mahabharath Nagar CH BD",
+        "map_url": "https://goo.gl/maps/N2n3quvCLWbFARAG9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-89",
+      "name": "Hills Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Hills Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/czNNyam3pfcpmLc8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "89",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Hills Colony BD",
+        "map_url": "https://maps.app.goo.gl/czNNyam3pfcpmLc8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-90",
+      "name": "Subhanpura CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Subhanpura CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/bsvX3tX5Zmx2tcDt7?g",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "90",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Subhanpura CH BD",
+        "map_url": "https://maps.app.goo.gl/bsvX3tX5Zmx2tcDt7?g"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-91",
+      "name": "Netajinagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Nampally",
+      "address": "Netajinagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/YEBheu2ejJX93sWV8?",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "91",
+        "uhnc": "UHNC-Nampally",
+        "published_name": "Netajinagar CH BD",
+        "map_url": "https://maps.app.goo.gl/YEBheu2ejJX93sWV8?"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-92",
+      "name": "Akberpura BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Akberpura BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/4oh8jFC8gotPXVNJ6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "92",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Akberpura BD",
+        "map_url": "https://maps.app.goo.gl/4oh8jFC8gotPXVNJ6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-93",
+      "name": "MD Lines Darga Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "MD Lines Darga Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/oGsVUnewPm17KN8j9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "93",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "MD Lines Darga Nagar BD",
+        "map_url": "https://goo.gl/maps/oGsVUnewPm17KN8j9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-94",
+      "name": "Hakimpet Kunta BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Hakimpet Kunta BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/UBSgYS58Gris3wrD7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "94",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Hakimpet Kunta BD",
+        "map_url": "https://goo.gl/maps/UBSgYS58Gris3wrD7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-95",
+      "name": "Swami Vivekanandanagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Swami Vivekanandanagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/FShwYnYwX4yUqu7KA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "95",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Swami Vivekanandanagar BD",
+        "map_url": "https://goo.gl/maps/FShwYnYwX4yUqu7KA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-96",
+      "name": "BJR Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "BJR Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/aTdMBnL52YJgZihq7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "96",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "BJR Nagar CH BD",
+        "map_url": "https://goo.gl/maps/aTdMBnL52YJgZihq7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-97",
+      "name": "Rajeev Gandhi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Rajeev Gandhi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/PymJjLsYciDivSi97",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "97",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Rajeev Gandhi CH BD",
+        "map_url": "https://goo.gl/maps/PymJjLsYciDivSi97"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-98",
+      "name": "Bojagutta Primary School BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Bojagutta Primary School BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/uPKWMdTos6j1ecSM9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "98",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Bojagutta Primary School BD",
+        "map_url": "https://goo.gl/maps/uPKWMdTos6j1ecSM9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-99",
+      "name": "Sabir Nagar Owaisi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Sabir Nagar Owaisi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/RggJVqX5W3RF2LjS8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "99",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Sabir Nagar Owaisi CH BD",
+        "map_url": "https://goo.gl/maps/RggJVqX5W3RF2LjS8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-100",
+      "name": "Joshwadi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Joshwadi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/TUJqXA5BmGxvAsa27",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "100",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Joshwadi BD",
+        "map_url": "https://goo.gl/maps/TUJqXA5BmGxvAsa27"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-101",
+      "name": "Bunge ke Bowli BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Bunge ke Bowli BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/u8A3vEWGngDiCnXU6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "101",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Bunge ke Bowli BD",
+        "map_url": "https://goo.gl/maps/u8A3vEWGngDiCnXU6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-102",
+      "name": "Marathi basthi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Marathi basthi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/fMaxKXpnikykAFXK7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "102",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Marathi basthi CH BD",
+        "map_url": "https://goo.gl/maps/fMaxKXpnikykAFXK7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-103",
+      "name": "Langerhouse Ibrahim CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Langerhouse Ibrahim CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/GWauUKZ7SZ7vP4Z7A",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "103",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Langerhouse Ibrahim CH BD",
+        "map_url": "https://goo.gl/maps/GWauUKZ7SZ7vP4Z7A"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-104",
+      "name": "Reshambagh CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Reshambagh CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/dDMSk9M4NeuussbL6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "104",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Reshambagh CH BD",
+        "map_url": "https://goo.gl/maps/dDMSk9M4NeuussbL6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-105",
+      "name": "Devdaspura BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Golconda",
+      "address": "Devdaspura BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/XstktyNQDU1vZGwb6?g",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "105",
+        "uhnc": "UHNC-Golconda",
+        "published_name": "Devdaspura BD",
+        "map_url": "https://maps.app.goo.gl/XstktyNQDU1vZGwb6?g"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-106",
+      "name": "Muthyal Bagh BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Muthyal Bagh BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/SB6Hdwggva6bf2pQ9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "106",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Muthyal Bagh BD",
+        "map_url": "https://goo.gl/maps/SB6Hdwggva6bf2pQ9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-107",
+      "name": "Undabagh CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Undabagh CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/eweTiDv4h5FZvgEA8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "107",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Undabagh CH BD",
+        "map_url": "https://goo.gl/maps/eweTiDv4h5FZvgEA8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-108",
+      "name": "Datta Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Datta Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/hqGNnvdYvQCwZhTu6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "108",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Datta Nagar BD",
+        "map_url": "https://maps.app.goo.gl/hqGNnvdYvQCwZhTu6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-109",
+      "name": "Arundathi Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Arundathi Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/gQ7qDQ4qZWx5hH929",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "109",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Arundathi Nagar BD",
+        "map_url": "https://goo.gl/maps/gQ7qDQ4qZWx5hH929"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-110",
+      "name": "Kawadiguda DS Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Kawadiguda DS Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/i4KL7tmRY48a6aAV8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "110",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Kawadiguda DS Nagar BD",
+        "map_url": "https://goo.gl/maps/i4KL7tmRY48a6aAV8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-111",
+      "name": "Bheema Maidan CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Bheema Maidan CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/KpwBRAtwGwpQpF1k8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "111",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Bheema Maidan CH BD",
+        "map_url": "https://goo.gl/maps/KpwBRAtwGwpQpF1k8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-112",
+      "name": "Gandinagar TRT Ward office BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Gandinagar TRT Ward office BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/UsbF5xir92t1dRvd7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "112",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Gandinagar TRT Ward office BD",
+        "map_url": "https://goo.gl/maps/UsbF5xir92t1dRvd7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-113",
+      "name": "Palamuri basti BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Palamuri basti BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/QSb52Cqjs7i5AYK17",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "113",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Palamuri basti BD",
+        "map_url": "https://goo.gl/maps/QSb52Cqjs7i5AYK17"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-114",
+      "name": "Mether Basthi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Mether Basthi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/skd4CfC4ALQXdJrM8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "114",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Mether Basthi BD",
+        "map_url": "https://goo.gl/maps/skd4CfC4ALQXdJrM8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-115",
+      "name": "Ratna Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Ratna Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/hb7sbhDK88NRz1Gk9?",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "115",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Ratna Nagar BD",
+        "map_url": "https://maps.app.goo.gl/hb7sbhDK88NRz1Gk9?"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-116",
+      "name": "Gowliguda Jangal Vitoba BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Gowliguda Jangal Vitoba BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/sc6mcKGU2aGxBQhX7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "116",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Gowliguda Jangal Vitoba BD",
+        "map_url": "https://goo.gl/maps/sc6mcKGU2aGxBQhX7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-117",
+      "name": "Gadikhana BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Gadikhana BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Z6kS5Kd5Aws82UjKA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "117",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Gadikhana BD",
+        "map_url": "https://goo.gl/maps/Z6kS5Kd5Aws82UjKA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-118",
+      "name": "Kamgar Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Kamgar Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/WGrB7qrGEa7BAVxa7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "118",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Kamgar Nagar BD",
+        "map_url": "https://goo.gl/maps/WGrB7qrGEa7BAVxa7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-119",
+      "name": "Hanumantekdi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-King Koti",
+      "address": "Hanumantekdi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/rWmj9bkHk8EesbdX9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "119",
+        "uhnc": "UHNC-King Koti",
+        "published_name": "Hanumantekdi CH BD",
+        "map_url": "https://goo.gl/maps/rWmj9bkHk8EesbdX9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-120",
+      "name": "Yadagirinagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Yadagirinagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/ygQPq2AxPdhUAhpA6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "120",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Yadagirinagar CH BD",
+        "map_url": "https://goo.gl/maps/ygQPq2AxPdhUAhpA6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-121",
+      "name": "Vengal Rao Nagar Jawahar Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Vengal Rao Nagar Jawahar Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/ttdPiNSDKa5DW9Ji7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "121",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Vengal Rao Nagar Jawahar Nagar CH BD",
+        "map_url": "https://goo.gl/maps/ttdPiNSDKa5DW9Ji7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-122",
+      "name": "HWC @ Office of the Commissioner, WD&CW Dept.",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "HWC @ Office of the Commissioner, WD&CW Dept.",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/oV53MPtcxHapmqpC6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "122",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "HWC @ Office of the Commissioner, WD&CW Dept.",
+        "map_url": "https://goo.gl/maps/oV53MPtcxHapmqpC6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-123",
+      "name": "SPR Hills BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "SPR Hills BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/T5iwHpmeaN7sA6A59",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "123",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "SPR Hills BD",
+        "map_url": "https://goo.gl/maps/T5iwHpmeaN7sA6A59"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-124",
+      "name": "Karmikanagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Karmikanagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/fuiXDgChgFNwDHXD8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "124",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Karmikanagar CH BD",
+        "map_url": "https://goo.gl/maps/fuiXDgChgFNwDHXD8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-125",
+      "name": "Borabanda Weaker Section BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Borabanda Weaker Section BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/gg5LuqUHtvJDXDEh9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "125",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Borabanda Weaker Section BD",
+        "map_url": "https://maps.app.goo.gl/gg5LuqUHtvJDXDEh9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-126",
+      "name": "Venkateshawara Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Venkateshawara Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/m9j5KdWczm8XauiM7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "126",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Venkateshawara Nagar BD",
+        "map_url": "https://goo.gl/maps/m9j5KdWczm8XauiM7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-127",
+      "name": "Guru Brahma Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Guru Brahma Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/VLENr12SbVWidwTJ6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "127",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Guru Brahma Nagar CH BD",
+        "map_url": "https://goo.gl/maps/VLENr12SbVWidwTJ6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-128",
+      "name": "Pratap Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Pratap Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/NRCac59bt5qEvDNr6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "128",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Pratap Nagar BD",
+        "map_url": "https://goo.gl/maps/NRCac59bt5qEvDNr6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-129",
+      "name": "NBT Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "NBT Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/tzU6jyhVs3Fm5vdy6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "129",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "NBT Nagar CH BD",
+        "map_url": "https://goo.gl/maps/tzU6jyhVs3Fm5vdy6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-130",
+      "name": "NB Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "NB Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/JC9snb8xHXNBYHv97",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "130",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "NB Nagar BD",
+        "map_url": "https://goo.gl/maps/JC9snb8xHXNBYHv97"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-131",
+      "name": "Baba Sailani Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Baba Sailani Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/r3KSgF1DhkDwAubK7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "131",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Baba Sailani Nagar BD",
+        "map_url": "https://maps.app.goo.gl/r3KSgF1DhkDwAubK7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-132",
+      "name": "Vinayakrao Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Vinayakrao Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/nam77CnGA94RSi1r6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "132",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Vinayakrao Nagar BD",
+        "map_url": "https://maps.app.goo.gl/nam77CnGA94RSi1r6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-133",
+      "name": "Sultan Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Sultan Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/Z7iDsBPA73HWomUe9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "133",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Sultan Nagar CH BD",
+        "map_url": "https://maps.app.goo.gl/Z7iDsBPA73HWomUe9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-134",
+      "name": "Prashashan Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Prashashan Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/GRf1Dc7dPaSwRSjw6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "134",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Prashashan Nagar BD",
+        "map_url": "https://goo.gl/maps/GRf1Dc7dPaSwRSjw6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-135",
+      "name": "PJR Venkatagiri BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "PJR Venkatagiri BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/xmyRdMKeVtwrAj4s5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "135",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "PJR Venkatagiri BD",
+        "map_url": "https://maps.app.goo.gl/xmyRdMKeVtwrAj4s5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-136",
+      "name": "Ambika mahila mandali CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Ambika mahila mandali CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/7tt68uV2uDUEVxvB9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "136",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Ambika mahila mandali CH BD",
+        "map_url": "https://goo.gl/maps/7tt68uV2uDUEVxvB9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-137",
+      "name": "Indiranagar gym centre BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Sri Ram Nagar",
+      "address": "Indiranagar gym centre BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/9eiSW1nq9acsfdqN8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "137",
+        "uhnc": "UHNC-Sri Ram Nagar",
+        "published_name": "Indiranagar gym centre BD",
+        "map_url": "https://goo.gl/maps/9eiSW1nq9acsfdqN8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-138",
+      "name": "Allauddin Koti BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "Allauddin Koti BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/nyyj1QJV19g8ST686",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "138",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "Allauddin Koti BD",
+        "map_url": "https://goo.gl/maps/nyyj1QJV19g8ST686"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-139",
+      "name": "CH Ashok Nagar, Sanath Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "CH Ashok Nagar, Sanath Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/HcKHHLXzVPfhJYey5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "139",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "CH Ashok Nagar, Sanath Nagar BD",
+        "map_url": "https://goo.gl/maps/HcKHHLXzVPfhJYey5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-140",
+      "name": "G.Swamy Naik Bhavan BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "G.Swamy Naik Bhavan BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/qL56msfWZtSLopup8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "140",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "G.Swamy Naik Bhavan BD",
+        "map_url": "https://goo.gl/maps/qL56msfWZtSLopup8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-141",
+      "name": "Erragadda Prem Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "Erragadda Prem Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/ffZT3z443CYmXTuo7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "141",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "Erragadda Prem Nagar BD",
+        "map_url": "https://goo.gl/maps/ffZT3z443CYmXTuo7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-142",
+      "name": "Kummaribasthi CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "Kummaribasthi CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/at1uzF9CX5TQScZq5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "142",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "Kummaribasthi CH BD",
+        "map_url": "https://goo.gl/maps/at1uzF9CX5TQScZq5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-143",
+      "name": "BS Maqtha CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "BS Maqtha CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/https://goo.gl/maps/VZSKiKq2dUVKWWsC6VZSKiKq2dUVKWWsC6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "143",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "BS Maqtha CH BD",
+        "map_url": "https://goo.gl/maps/https://goo.gl/maps/VZSKiKq2dUVKWWsC6VZSKiKq2dUVKWWsC6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-144",
+      "name": "Yosufguda Basti CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "Yosufguda Basti CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/nNd3baRj5FTgBtjm8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "144",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "Yosufguda Basti CH BD",
+        "map_url": "https://maps.app.goo.gl/nNd3baRj5FTgBtjm8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-145",
+      "name": "Yellareddyguda CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Ameerpet",
+      "address": "Yellareddyguda CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://g.co/kgs/wKEcb8g",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "145",
+        "uhnc": "UHNC-Ameerpet",
+        "published_name": "Yellareddyguda CH BD",
+        "map_url": "https://g.co/kgs/wKEcb8g"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-146",
+      "name": "Bhoiguda Bapuji Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Bhoiguda Bapuji Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Nf4YkD1THrjDQA2Q8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "146",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Bhoiguda Bapuji Nagar BD",
+        "map_url": "https://goo.gl/maps/Nf4YkD1THrjDQA2Q8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-147",
+      "name": "Sambamoorthi Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Sambamoorthi Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/kd5cVuBp9FdJoCuo6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "147",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Sambamoorthi Nagar BD",
+        "map_url": "https://maps.app.goo.gl/kd5cVuBp9FdJoCuo6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-148",
+      "name": "Shivaji Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Shivaji Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/mci5w1sw481yRURL6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "148",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Shivaji Nagar CH BD",
+        "map_url": "https://goo.gl/maps/mci5w1sw481yRURL6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-149",
+      "name": "Chapalabai BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Chapalabai BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/seB2m476UxUH9abh9",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "149",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Chapalabai BD",
+        "map_url": "https://goo.gl/maps/seB2m476UxUH9abh9"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-150",
+      "name": "Ravindra Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Ravindra Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/vgUeNam1yLvQHpaRA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "150",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Ravindra Nagar BD",
+        "map_url": "https://goo.gl/maps/vgUeNam1yLvQHpaRA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-151",
+      "name": "Sithafulmandi New Indra Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Sithafulmandi New Indra Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/UstGoZJ9rRLzzmM96",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "151",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Sithafulmandi New Indra Nagar BD",
+        "map_url": "https://goo.gl/maps/UstGoZJ9rRLzzmM96"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-152",
+      "name": "Ambanagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Ambanagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/6BgM19tKQki6xSDF7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "152",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Ambanagar CH BD",
+        "map_url": "https://goo.gl/maps/6BgM19tKQki6xSDF7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-153",
+      "name": "Chinth Bai CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Chinth Bai CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/vZMj5rtCH7ni5ZDL6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "153",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Chinth Bai CH BD",
+        "map_url": "https://goo.gl/maps/vZMj5rtCH7ni5ZDL6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-154",
+      "name": "Dood Bavi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Dood Bavi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/cqAbSrT6nWDp2Kaz5",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "154",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Dood Bavi BD",
+        "map_url": "https://goo.gl/maps/cqAbSrT6nWDp2Kaz5"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-155",
+      "name": "Hamali Basthi BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Seethaphalmandi",
+      "address": "Hamali Basthi BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/STmLnBCYswsZg3J39",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "155",
+        "uhnc": "UHNC-Seethaphalmandi",
+        "published_name": "Hamali Basthi BD",
+        "map_url": "https://goo.gl/maps/STmLnBCYswsZg3J39"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-156",
+      "name": "Vijayapuri colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Vijayapuri colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/JuajPefDqt1eorKT8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "156",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Vijayapuri colony BD",
+        "map_url": "https://goo.gl/maps/JuajPefDqt1eorKT8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-157",
+      "name": "Nagarjuna nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Nagarjuna nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/2rUSSD1rD5RtH51b7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "157",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Nagarjuna nagar BD",
+        "map_url": "https://maps.app.goo.gl/2rUSSD1rD5RtH51b7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-158",
+      "name": "Railnilayam Dr.Ambedkar Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Railnilayam Dr.Ambedkar Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/9VvgW4gr157L6WwP8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "158",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Railnilayam Dr.Ambedkar Nagar BD",
+        "map_url": "https://goo.gl/maps/9VvgW4gr157L6WwP8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-159",
+      "name": "Cha Cha Nehru Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Cha Cha Nehru Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/Hv2x8eqLPTLmoJ1o8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "159",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Cha Cha Nehru Nagar BD",
+        "map_url": "https://goo.gl/maps/Hv2x8eqLPTLmoJ1o8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-160",
+      "name": "CC Nagar Bharath compound BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "CC Nagar Bharath compound BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/87wn3qfg6hPRTVGL6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "160",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "CC Nagar Bharath compound BD",
+        "map_url": "https://goo.gl/maps/87wn3qfg6hPRTVGL6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-161",
+      "name": "Shyamlal Building BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Shyamlal Building BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/YVgjNLZxd7J188Pg8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "161",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Shyamlal Building BD",
+        "map_url": "https://goo.gl/maps/YVgjNLZxd7J188Pg8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-162",
+      "name": "Customs Basti BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Customs Basti BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/2thhWZbEuE6RgX6T7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "162",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Customs Basti BD",
+        "map_url": "https://goo.gl/maps/2thhWZbEuE6RgX6T7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-163",
+      "name": "Nallagutta CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Lalapet",
+      "address": "Nallagutta CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/AXaDAEQ2rLsg2XaPA",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "163",
+        "uhnc": "UHNC-Lalapet",
+        "published_name": "Nallagutta CH BD",
+        "map_url": "https://goo.gl/maps/AXaDAEQ2rLsg2XaPA"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-164",
+      "name": "Rasoolpura BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "Rasoolpura BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/8Yxkvic88zrAg8Yd8",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "164",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "Rasoolpura BD",
+        "map_url": "https://goo.gl/maps/8Yxkvic88zrAg8Yd8"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-165",
+      "name": "CBN Nagar",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "CBN Nagar",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/Vk6veC25UZutrJex7?g",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "165",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "CBN Nagar",
+        "map_url": "https://maps.app.goo.gl/Vk6veC25UZutrJex7?g"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-166",
+      "name": "Gunrock Colony BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "Gunrock Colony BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://goo.gl/maps/5cgeLkfDobvgMhJW6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "166",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "Gunrock Colony BD",
+        "map_url": "https://goo.gl/maps/5cgeLkfDobvgMhJW6"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-167",
+      "name": "Sanjeevaiah Nagar BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "Sanjeevaiah Nagar BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/oPz4TxB6nWJZrhHb7",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "167",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "Sanjeevaiah Nagar BD",
+        "map_url": "https://maps.app.goo.gl/oPz4TxB6nWJZrhHb7"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-168",
+      "name": "Nandamuri Nagar CH BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "Nandamuri Nagar CH BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/ragsV4hLxCigGNK87",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "168",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "Nandamuri Nagar CH BD",
+        "map_url": "https://maps.app.goo.gl/ragsV4hLxCigGNK87"
+      }
+    },
+    {
+      "source_record_id": "hyderabad-gov-169",
+      "name": "Lothukunta Pump House BD",
+      "facility_category": "Basthi Dawakhana / UPHC-linked primary care",
+      "administrative_group": "UHNC-Cantonment",
+      "address": "Lothukunta Pump House BD",
+      "latitude": null,
+      "longitude": null,
+      "map_url": "https://maps.app.goo.gl/5mMB3VGYUcEqoBxZ6",
+      "source_name": "Hyderabad District Government of Telangana",
+      "source_url": "https://hyderabad.telangana.gov.in/hospitals/",
+      "verification_status": "pending_verification",
+      "raw_payload": {
+        "sl_no": "169",
+        "uhnc": "UHNC-Cantonment",
+        "published_name": "Lothukunta Pump House BD",
+        "map_url": "https://maps.app.goo.gl/5mMB3VGYUcEqoBxZ6"
+      }
+    }
+  ]
+}
