@@ -1,5 +1,6 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { Pressable, StyleSheet, Text, View, type ReactNode } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import type { ReactNode } from "react";
 import { useRouter } from "expo-router";
 import { ScreenContainer } from "@/components/screen-container";
 import { haptic } from "@/lib/haptics";
@@ -45,8 +46,6 @@ export function Metric({ label, value, icon, tint = "#0B78C6" }: { label: string
   return <View style={styles.metric}><View style={[styles.metricIcon, { backgroundColor: `${tint}16` }]}><MaterialIcons name={icon} size={18} color={tint} /></View><Text style={styles.metricValue}>{value}</Text><Text style={styles.metricLabel}>{label}</Text></View>;
 }
 
-export const uiStyles = styles;
-
 const styles = StyleSheet.create({
   topbar: { minHeight: 54, paddingHorizontal: 18, alignItems: "center", flexDirection: "row", justifyContent: "space-between" },
   iconButton: { width: 38, height: 38, borderRadius: 19, alignItems: "center", justifyContent: "center", backgroundColor: "#F4F8FB" },
@@ -69,4 +68,6 @@ const styles = StyleSheet.create({
   metricValue: { color: "#0B2942", fontSize: 18, lineHeight: 22, fontWeight: "800" },
   metricLabel: { color: "#536273", fontSize: 11, lineHeight: 15, fontWeight: "600", marginTop: 2 },
 });
+
+export const uiStyles = styles;
 
