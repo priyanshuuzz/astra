@@ -9,6 +9,7 @@ const engine = new HospitalRecommendationEngine();
 
 type PersistedState = {
   hasOnboarded: boolean;
+  isDemoMode: boolean;
   role: UserRole;
   hospitals: Hospital[];
   contacts: EmergencyContact[];
@@ -23,6 +24,7 @@ type AstraContextValue = PersistedState & {
   activeEmergency?: EmergencySession;
   setRole: (role: UserRole) => void;
   completeOnboarding: () => void;
+  enterDemoMode: () => void;
   beginEmergency: (type: EmergencyType, location?: Coordinates) => EmergencySession;
   selectHospital: (hospitalId: string) => void;
   requestAmbulance: () => void;
@@ -36,7 +38,7 @@ type AstraContextValue = PersistedState & {
   resetDemo: () => void;
 };
 
-const defaultState: PersistedState = { hasOnboarded: false, role: "patient", hospitals: demoHospitals, contacts: demoContacts, history: [], notifications: [] };
+const defaultState: PersistedState = { hasOnboarded: false, isDemoMode: false, role: "patient", hospitals: demoHospitals, contacts: demoContacts, history: [], notifications: [] };
 const AstraContext = createContext<AstraContextValue | undefined>(undefined);
 
 function createNotification(title: string, body: string, level: AstraNotification["level"] = "info", emergencyId?: string): AstraNotification {
@@ -142,6 +144,7 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     activeEmergency,
     setRole: (role) => setState((previous) => ({ ...previous, role })),
     completeOnboarding: () => setState((previous) => ({ ...previous, hasOnboarded: true })),
+    enterDemoMode: () => setState((previous) => ({ ...previous, hasOnboarded: true, isDemoMode: true, role: "patient" })),
     beginEmergency,
     selectHospital,
     requestAmbulance,

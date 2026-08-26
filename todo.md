@@ -24,3 +24,7 @@
 - [x] Add live map and ambulance routing provider integration with route/ETA refresh and degraded fallback
 - [x] Connect hospital staff dashboard reads and writes to Supabase with authenticated authorization
 - [ ] Add integration tests and verify mobile behavior on iOS and Android
+
+# Bug Fixes
+
+- [x] Fix demo mode so users can bypass Supabase authentication and enter the local emergency workflow
