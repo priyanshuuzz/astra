@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { StatusPill } from "@/components/astra/ui";
 import type { RankedHospital } from "@/types/astra";
+import { ProvenancePanel } from "@/components/astra/provenance-panel";
 
 export function HospitalCard({ item, emphasis = false, onPress }: { item: RankedHospital; emphasis?: boolean; onPress?: () => void }) {
   const router = useRouter();
@@ -10,8 +11,9 @@ export function HospitalCard({ item, emphasis = false, onPress }: { item: Ranked
   const ageMinutes = Math.max(1, Math.round((Date.now() - new Date(hospital.dataLastUpdated).getTime()) / 60_000));
   return <Pressable accessibilityRole="button" accessibilityLabel={`View ${hospital.name}`} onPress={onPress ?? (() => router.push((`/hospitals/${hospital.id}`) as never))} style={({ pressed }) => [styles.card, emphasis && styles.emphasis, pressed && { opacity: 0.75 }]}>
     <View style={styles.topRow}><View style={{ flex: 1, paddingRight: 8 }}><Text style={styles.name}>{hospital.name}</Text><Text style={styles.address}>{hospital.type} · {hospital.address}</Text></View><StatusPill status={hospital.readiness} /></View>
-    <View style={styles.metrics}><View style={styles.item}><MaterialIcons name="near-me" size={16} color="#0B78C6" /><Text style={styles.metric}>{score.distanceKm} km</Text></View><View style={styles.item}><MaterialIcons name="schedule" size={16} color="#0B78C6" /><Text style={styles.metric}>{score.etaMinutes} min</Text></View><View style={styles.item}><MaterialIcons name="airline-seat-flat" size={16} color="#1E7A52" /><Text style={styles.metric}>ICU {hospital.beds.icu}</Text></View></View>
-    <View style={styles.bottomRow}><View style={styles.freshness}><MaterialIcons name={ageMinutes <= 5 ? "verified" : "history"} size={14} color={ageMinutes <= 5 ? "#1E7A52" : "#A86A00"} /><Text style={styles.freshnessText}>{ageMinutes <= 5 ? "Confirmed" : "Last confirmed"} {ageMinutes} min ago</Text></View><View style={styles.score}><Text style={styles.scoreValue}>{score.overall}%</Text><Text style={styles.scoreLabel}>match</Text></View></View>
+    <View style={styles.metrics}><View style={styles.item}><MaterialIcons name="near-me" size={16} color="#0B78C6" /><Text style={styles.metric}>{score.distanceKm} km</Text></View><View style={styles.item}><MaterialIcons name="schedule" size={16} color="#0B78C6" /><Text style={styles.metric}>{score.etaMinutes} min ETA</Text></View><View style={styles.item}><MaterialIcons name="verified" size={16} color="#1E7A52" /><Text style={styles.metric}>{score.eligible ? "Capability fit" : "Excluded"}</Text></View></View><Text style={styles.capability}>{score.reasons[0]}</Text>
+    <ProvenancePanel hospital={hospital} capability={score.eligible ? score.reasons[0] : "Clinical gate"} />
+    <View style={styles.bottomRow}><View style={styles.freshness}><MaterialIcons name={ageMinutes <= 5 ? "verified" : "history"} size={14} color={ageMinutes <= 5 ? "#1E7A52" : "#A86A00"} /><Text style={styles.freshnessText}>{ageMinutes <= 5 ? "FRESH" : ageMinutes <= 30 ? "AGEING" : "STALE"} · {ageMinutes} min ago · SIMULATED</Text></View><View style={styles.score}><Text style={styles.scoreValue}>{score.overall}%</Text><Text style={styles.scoreLabel}>match</Text></View></View>
   </Pressable>;
 }
 
@@ -24,6 +26,7 @@ const styles = StyleSheet.create({
   metrics: { flexDirection: "row", gap: 15, paddingVertical: 14, marginTop: 12, borderTopWidth: 1, borderBottomWidth: 1, borderColor: "#EDF2F6" },
   item: { flexDirection: "row", alignItems: "center", gap: 5 },
   metric: { color: "#294155", fontSize: 12, fontWeight: "700" },
+  capability: { color: "#0B5E9A", backgroundColor: "#EAF4FC", borderRadius: 8, paddingHorizontal: 8, paddingVertical: 6, fontSize: 10, fontWeight: "800" },
   bottomRow: { marginTop: 12, flexDirection: "row", alignItems: "center", justifyContent: "space-between" },
   freshness: { flexDirection: "row", alignItems: "center", gap: 5, flex: 1 },
   freshnessText: { color: "#536273", fontSize: 11, fontWeight: "600" },

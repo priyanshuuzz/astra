@@ -197,6 +197,15 @@ export const demoHospitals: Hospital[] = [
     dataSource: "ASTRA DEMO",
     isVerified: true,
   },
+  {
+    id: "hyderabad-stroke-network", name: "Hyderabad Stroke Network", type: "Private", address: "44 Jubilee Hills Link, West Corridor", phone: "+91 00000 10011", location: { latitude: 17.428, longitude: 78.407, label: "Hyderabad Stroke Network" }, readiness: "ready", beds: { icu: 4, emergency: 8, general: 24, ventilators: 5 }, specialties: ["Neurology", "Stroke Care", "Neurosurgery", "Critical Care"], facilities: ["CT", "MRI", "Stroke Unit", "Neuro ICU"], specialists: [specialist("hs1", "Dr. Ananya Rao", "Neurology", "available")], ambulanceAvailable: true, traffic: "light", dataLastUpdated: ago(7), dataSource: "ASTRA DEMO", isVerified: true,
+  },
+  {
+    id: "east-corridor-general", name: "East Corridor General Hospital", type: "Public", address: "19 Genome Road, East Corridor", phone: "+91 00000 10012", location: { latitude: 17.452, longitude: 78.412, label: "East Corridor General Hospital" }, readiness: "limited", beds: { icu: 2, emergency: 14, general: 60, ventilators: 3 }, specialties: ["Emergency Medicine", "General Surgery", "Critical Care"], facilities: ["Emergency Unit", "CT", "Blood Bank", "ICU"], specialists: [specialist("eg1", "Dr. Farah Ali", "Emergency Medicine", "available")], ambulanceAvailable: false, traffic: "moderate", dataLastUpdated: ago(12), dataSource: "ASTRA DEMO", isVerified: true,
+  },
+  {
+    id: "riverbend-pediatric", name: "Riverbend Pediatric Centre", type: "Teaching", address: "7 Riverfront Road, South Corridor", phone: "+91 00000 10013", location: { latitude: 17.372, longitude: 78.466, label: "Riverbend Pediatric Centre" }, readiness: "ready", beds: { icu: 3, emergency: 7, general: 32, ventilators: 5 }, specialties: ["Pediatrics", "Pediatric Trauma", "Emergency Medicine"], facilities: ["PICU", "Pediatric Emergency", "CT"], specialists: [specialist("rp1", "Dr. Rohan Das", "Pediatrics", "on_call")], ambulanceAvailable: true, traffic: "light", dataLastUpdated: ago(4), dataSource: "ASTRA DEMO", isVerified: true,
+  },
 ];
 
 export const demoContacts: EmergencyContact[] = [

@@ -1,4 +1,4 @@
-export type UserRole = "patient" | "staff" | "admin";
+export type UserRole = "patient" | "crew" | "doctor" | "family" | "staff" | "admin";
 
 export type EmergencyType =
   | "cardiac"
@@ -15,7 +15,12 @@ export type EmergencyType =
 export type Readiness = "ready" | "limited" | "unavailable" | "unknown";
 export type SpecialistStatus = "available" | "on_call" | "busy" | "unavailable" | "unknown";
 export type AmbulanceStatus = "requested" | "dispatched" | "arriving" | "picked_up" | "en_route" | "arrived";
-export type EmergencyStatus = "selecting" | "recommended" | "active" | "completed" | "redirected";
+export type EmergencyStatus = "created" | "classifying" | "searching" | "requests_sent" | "waiting_acceptance" | "accepted" | "destination_locked" | "en_route" | "arrived" | "completed" | "declined" | "timeout" | "escalated" | "fallback" | "cancelled" | "selecting" | "recommended" | "active" | "redirected";
+export type VerificationStatus = "verified" | "unverified" | "expired" | "unknown";
+export type CapabilityKey = "CT" | "MRI" | "ECG" | "CathLab" | "Thrombectomy" | "Neurology" | "Cardiology" | "TraumaCentre" | "EmergencySurgery" | "ICU" | "PICU" | "NICU" | "BloodBank" | "Dialysis" | "BurnsUnit" | "VentilatorSupport" | "EmergencyDepartment" | "ObstetricEmergency" | "PediatricEmergency";
+export type DeclineReason = "capability_unavailable" | "clinical_team_unavailable" | "capacity_unavailable" | "department_saturated" | "equipment_unavailable" | "patient_unsuitable" | "other";
+
+export interface CapabilityAttestation { available: boolean; verificationStatus: VerificationStatus; source: string; attestedBy: string; lastVerified: string; }
 
 export interface Coordinates {
   latitude: number;
@@ -55,6 +60,12 @@ export interface Hospital {
   dataLastUpdated: string;
   dataSource: "ASTRA DEMO";
   isVerified: boolean;
+  layer?: 1 | 2 | 3 | 4;
+  classifications?: string[];
+  verificationStatus?: VerificationStatus;
+  lastVerified?: string;
+  verifiedBy?: string;
+  capabilities?: Partial<Record<CapabilityKey, CapabilityAttestation>>;
 }
 
 export interface HospitalScore {
@@ -69,6 +80,9 @@ export interface HospitalScore {
   distanceKm: number;
   etaMinutes: number;
   reasons: string[];
+  eligible?: boolean;
+  gateFailures?: string[];
+  scoringVersion?: string;
 }
 
 export interface RankedHospital {
@@ -105,7 +119,14 @@ export interface EmergencySession {
   hospitalAccepted?: boolean;
   contactsNotified: boolean;
   notes: string[];
+  acuity?: "low" | "moderate" | "high" | "critical";
+  onsetMinutes?: number;
+  requiredCapabilities?: CapabilityKey[];
+  acceptanceRequests?: AcceptanceRequest[];
+  finalOutcome?: "arrived" | "fallback" | "cancelled";
 }
+
+export interface AcceptanceRequest { id: string; hospitalId: string; status: "pending" | "accepted" | "declined" | "timeout" | "assigned_elsewhere"; sentAt: string; respondedAt?: string; declineReason?: DeclineReason; declineNotes?: string; responderName?: string; }
 
 export interface AstraNotification {
   id: string;

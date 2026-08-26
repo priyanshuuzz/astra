@@ -23,8 +23,19 @@
 - [x] Add real GPS permission handling, current-position updates, and manual fallback
 - [x] Add live map and ambulance routing provider integration with route/ETA refresh and degraded fallback
 - [x] Connect hospital staff dashboard reads and writes to Supabase with authenticated authorization
-- [ ] Add integration tests and verify mobile behavior on iOS and Android
+- [x] Add integration tests and verify mobile behavior on iOS and Android
 
 # Bug Fixes
 
 - [x] Fix demo mode so users can bypass Supabase authentication and enter the local emergency workflow
+
+# ASTRA V2 Specification
+
+- [x] Reframe primary workflow around crew/referring-doctor initiation and verified hospital acceptance, not bed-count browsing
+- [x] Add crew, hospital coordinator, referring doctor, family, admin, and hospital-admin role flows
+- [ ] Expand hospital capability registry with provenance, verification states, layers, and specialty classifications
+- [x] Add deterministic emergency capability gates and explainable ranking for stroke, cardiac, trauma, burns, pediatric, obstetric, and general cases
+- [x] Add acceptance handshake with countdown, decline reasons, destination lock, failover, referral/pre-alert, and audit trail
+- [x] Add Hyderabad fictional demo registry and clearly label all simulated data
+- [x] Add resilient offline, stale-data, duplicate-request, rate-limit, and authorization states
+- [x] Add architecture and operational documentation for backend replacement, privacy, security, analytics, and deployment readiness

@@ -2,7 +2,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { demoContacts, demoHospitals, demoLocation } from "@/data/demo";
 import { HospitalRecommendationEngine } from "@/lib/astra/recommendation";
-import type { AmbulanceStatus, AstraNotification, Coordinates, EmergencyContact, EmergencySession, EmergencyType, Hospital, UserRole } from "@/types/astra";
+import type { AcceptanceRequest, AmbulanceStatus, AstraNotification, Coordinates, EmergencyContact, EmergencySession, EmergencyType, Hospital, UserRole } from "@/types/astra";
+import { requiredCapabilities } from "@/lib/astra/recommendation";
 
 const STORAGE_KEY = "astra.demo.state.v1";
 const engine = new HospitalRecommendationEngine();
@@ -72,14 +73,19 @@ export function AstraProvider({ children }: { children: ReactNode }) {
 
   const beginEmergency = useCallback((type: EmergencyType, location = liveLocation) => {
     const ranked = engine.rank(type, location, state.hospitals);
+    const sentAt = new Date().toISOString();
+    const acceptanceRequests: AcceptanceRequest[] = ranked.slice(0, 3).map(({ hospital }, index) => ({ id: `request-${Date.now()}-${index}`, hospitalId: hospital.id, status: "pending", sentAt }));
     const session: EmergencySession = {
       id: `ASTRA-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
       type,
-      startedAt: new Date().toISOString(),
-      status: "recommended",
+      startedAt: sentAt,
+      status: acceptanceRequests.length ? "waiting_acceptance" : "fallback",
       patientLocation: location,
       recommendation: ranked[0]?.score,
-      notes: ["Emergency session created with simulated location."],
+      requiredCapabilities: requiredCapabilities(type),
+      acceptanceRequests,
+      acuity: type === "unknown" ? "critical" : "high",
+      notes: [acceptanceRequests.length ? `${acceptanceRequests.length} acceptance requests sent to suitable hospitals.` : "No capability-adequate hospital found; following standing emergency protocol."],
       contactsNotified: false,
     };
     setActiveEmergency(session);
@@ -114,14 +120,17 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     setActiveEmergency((previous) => {
       if (!previous) return previous;
       if (accepted) {
-        const updated = { ...previous, hospitalAccepted: true, notes: [...previous.notes, "Hospital accepted simulated pre-alert."] };
+        const destinationId = previous.selectedHospitalId ?? previous.recommendation?.hospitalId;
+        const updatedRequests = (previous.acceptanceRequests ?? []).map((request) => request.hospitalId === destinationId ? { ...request, status: "accepted" as const, respondedAt: new Date().toISOString(), responderName: "Hospital Emergency Coordinator" } : { ...request, status: "assigned_elsewhere" as const });
+        const updated = { ...previous, hospitalAccepted: true, selectedHospitalId: destinationId, status: "destination_locked" as const, acceptanceRequests: updatedRequests, notes: [...previous.notes, "Hospital accepted simulated pre-alert; destination locked and other requests closed."] };
         setState((current) => ({ ...current, notifications: [createNotification("Hospital accepted pre-alert", "The destination confirmed emergency readiness.", "success", updated.id), ...current.notifications] }));
         return updated;
       }
-      const unavailableId = previous.selectedHospitalId;
+      const unavailableId = previous.selectedHospitalId ?? previous.recommendation?.hospitalId;
       const hospitals = state.hospitals.map((hospital) => hospital.id === unavailableId ? { ...hospital, readiness: "unavailable" as const, beds: { ...hospital.beds, icu: 0 } } : hospital);
       const newBest = engine.rank(previous.type, previous.patientLocation, hospitals)[0];
-      const updated = { ...previous, hospitalAccepted: false, selectedHospitalId: newBest?.hospital.id, recommendation: newBest?.score, status: "redirected" as const, notes: [...previous.notes, "Original hospital unavailable; explicit alternative recommended."] };
+      const updatedRequests = (previous.acceptanceRequests ?? []).map((request) => request.hospitalId === unavailableId ? { ...request, status: "declined" as const, respondedAt: new Date().toISOString(), declineReason: "capability_unavailable" as const } : request);
+      const updated = { ...previous, hospitalAccepted: false, selectedHospitalId: newBest?.hospital.id, recommendation: newBest?.score, status: newBest ? "escalated" as const : "fallback" as const, acceptanceRequests: updatedRequests, notes: [...previous.notes, newBest ? "Original hospital declined; ASTRA escalated to the next capability-adequate hospital." : "No hospital confirmed acceptance. Following standing emergency protocol."] };
       setState((current) => ({ ...current, hospitals, notifications: [createNotification("Hospital availability changed", `ASTRA recommends ${newBest?.hospital.name ?? "an alternative hospital"}. Review before continuing.`, "warning", updated.id), ...current.notifications] }));
       return updated;
     });
