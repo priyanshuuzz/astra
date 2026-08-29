@@ -33,7 +33,7 @@
 
 - [x] Reframe primary workflow around crew/referring-doctor initiation and verified hospital acceptance, not bed-count browsing
 - [x] Add crew, hospital coordinator, referring doctor, family, admin, and hospital-admin role flows
-- [ ] Expand hospital capability registry with provenance, verification states, layers, and specialty classifications
+- [x] Expand hospital capability registry with provenance, verification states, layers, and specialty classifications
 - [x] Add deterministic emergency capability gates and explainable ranking for stroke, cardiac, trauma, burns, pediatric, obstetric, and general cases
 - [x] Add acceptance handshake with countdown, decline reasons, destination lock, failover, referral/pre-alert, and audit trail
 - [x] Add Hyderabad fictional demo registry and clearly label all simulated data
@@ -71,5 +71,5 @@
 - [x] Add Supabase facility registry, provenance, verification, and import-run audit schema
 - [x] Add server-only opt-in Supabase importer and repository access for facility records
 - [x] Document real-data source links, freshness, privacy, and service-key boundaries
-- [ ] Add authorized hospital coordinator feeds for live beds, specialists, acceptance, and ambulance status
+- [x] Add authorized hospital coordinator feeds for live beds, specialists, acceptance, and ambulance status
 - [ ] Promote reviewed facility records into verified routing candidates after coordinate/capability validation
