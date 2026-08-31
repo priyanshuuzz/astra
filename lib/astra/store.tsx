@@ -4,6 +4,7 @@ import { demoContacts, demoHospitals, demoLocation } from "@/data/demo";
 import { HospitalRecommendationEngine } from "@/lib/astra/recommendation";
 import type { AcceptanceRequest, AmbulanceStatus, AstraNotification, Coordinates, EmergencyContact, EmergencySession, EmergencyType, Hospital, UserRole } from "@/types/astra";
 import { requiredCapabilities } from "@/lib/astra/recommendation";
+import { clarifyAcceptance, createAcceptanceRequests } from "@/lib/astra/handshake";
 
 const STORAGE_KEY = "astra.demo.state.v1";
 const engine = new HospitalRecommendationEngine();
@@ -31,6 +32,7 @@ type AstraContextValue = PersistedState & {
   requestAmbulance: () => void;
   updateAmbulanceStatus: (status: AmbulanceStatus) => void;
   setHospitalDecision: (accepted: boolean) => void;
+  requestHospitalClarification: (notes: string) => void;
   completeEmergency: () => void;
   updateHospital: (hospitalId: string, update: Partial<Hospital>) => void;
   addContact: (contact: Omit<EmergencyContact, "id">) => void;
@@ -74,7 +76,7 @@ export function AstraProvider({ children }: { children: ReactNode }) {
   const beginEmergency = useCallback((type: EmergencyType, location = liveLocation) => {
     const ranked = engine.rank(type, location, state.hospitals);
     const sentAt = new Date().toISOString();
-    const acceptanceRequests: AcceptanceRequest[] = ranked.slice(0, 3).map(({ hospital }, index) => ({ id: `request-${Date.now()}-${index}`, hospitalId: hospital.id, status: "pending", sentAt }));
+    const acceptanceRequests: AcceptanceRequest[] = createAcceptanceRequests(ranked.map(({ hospital }) => hospital), sentAt);
     const session: EmergencySession = {
       id: `ASTRA-${Math.random().toString(36).slice(2, 7).toUpperCase()}`,
       type,
@@ -114,6 +116,17 @@ export function AstraProvider({ children }: { children: ReactNode }) {
 
   const updateAmbulanceStatus = useCallback((status: AmbulanceStatus) => {
     setActiveEmergency((previous) => previous?.ambulance ? { ...previous, ambulance: { ...previous.ambulance, status, etaMinutes: Math.max(0, previous.ambulance.etaMinutes - 1) } } : previous);
+  }, []);
+
+  const requestHospitalClarification = useCallback((notes: string) => {
+    setActiveEmergency((previous) => {
+      if (!previous) return previous;
+      const hospitalId = previous.selectedHospitalId ?? previous.recommendation?.hospitalId;
+      if (!hospitalId) return previous;
+      const updated = { ...previous, acceptanceRequests: clarifyAcceptance(previous.acceptanceRequests ?? [], hospitalId, notes), notes: [...previous.notes, "Hospital requested clarification before making an acceptance decision."] };
+      setState((current) => ({ ...current, notifications: [createNotification("Clarification requested", notes || "Hospital requested clarification before accepting the referral.", "warning", updated.id), ...current.notifications] }));
+      return updated;
+    });
   }, []);
 
   const setHospitalDecision = useCallback((accepted: boolean) => {
@@ -159,6 +172,7 @@ export function AstraProvider({ children }: { children: ReactNode }) {
     requestAmbulance,
     updateAmbulanceStatus,
     setHospitalDecision,
+    requestHospitalClarification,
     completeEmergency,
     updateHospital: (hospitalId, update) => setState((previous) => ({ ...previous, hospitals: previous.hospitals.map((hospital) => hospital.id === hospitalId ? { ...hospital, ...update, dataLastUpdated: new Date().toISOString() } : hospital) })),
     addContact: (contact) => setState((previous) => ({ ...previous, contacts: [...previous.contacts, { ...contact, id: `contact-${Date.now()}` }].sort((a, b) => a.priority - b.priority) })),

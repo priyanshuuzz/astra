@@ -60,6 +60,8 @@ export interface Hospital {
   dataLastUpdated: string;
   dataSource: "ASTRA DEMO";
   isVerified: boolean;
+  /** True only when this facility has passed the promotion boundary for routing. */
+  routingCandidate?: boolean;
   layer?: 1 | 2 | 3 | 4;
   classifications?: string[];
   verificationStatus?: VerificationStatus;
@@ -126,7 +128,9 @@ export interface EmergencySession {
   finalOutcome?: "arrived" | "fallback" | "cancelled";
 }
 
-export interface AcceptanceRequest { id: string; hospitalId: string; status: "pending" | "accepted" | "declined" | "timeout" | "assigned_elsewhere"; sentAt: string; respondedAt?: string; declineReason?: DeclineReason; declineNotes?: string; responderName?: string; }
+export type AcceptanceStatus = "pending" | "accepted" | "declined" | "needs_clarification" | "timeout" | "assigned_elsewhere";
+
+export interface AcceptanceRequest { id: string; hospitalId: string; status: AcceptanceStatus; sentAt: string; expiresAt?: string; respondedAt?: string; declineReason?: DeclineReason; declineNotes?: string; clarificationNotes?: string; responderName?: string; }
 
 export interface AstraNotification {
   id: string;

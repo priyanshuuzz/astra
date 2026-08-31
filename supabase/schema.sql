@@ -70,11 +70,13 @@ create table if not exists public.acceptance_requests (
   id uuid primary key default gen_random_uuid(),
   emergency_id uuid not null references public.emergencies(id) on delete cascade,
   hospital_id uuid not null references public.hospitals(id),
-  status text not null default 'pending' check (status in ('pending', 'accepted', 'declined', 'timeout', 'assigned_elsewhere')),
+  status text not null default 'pending' check (status in ('pending', 'accepted', 'declined', 'needs_clarification', 'timeout', 'assigned_elsewhere')),
   sent_at timestamptz not null default now(),
+  expires_at timestamptz not null default (now() + interval '90 seconds'),
   responded_at timestamptz,
   decline_reason text,
   decline_notes text,
+  clarification_notes text,
   responder_id uuid references auth.users(id),
   responder_name text,
   created_at timestamptz not null default now()
@@ -84,7 +86,7 @@ create table if not exists public.acceptance_responses (
   id uuid primary key default gen_random_uuid(),
   request_id uuid not null references public.acceptance_requests(id) on delete cascade,
   hospital_id uuid not null references public.hospitals(id),
-  response text not null check (response in ('accepted', 'declined', 'timeout')),
+  response text not null check (response in ('accepted', 'declined', 'needs_clarification', 'timeout')),
   reason text,
   notes text,
   responder_id uuid not null references auth.users(id),
@@ -178,6 +180,11 @@ create table if not exists public.facility_import_runs (
   status text not null default 'running' check (status in ('running', 'completed', 'failed')),
   error_message text
 );
+
+alter table public.facility_registry add column if not exists routing_candidate boolean not null default false;
+alter table public.facility_registry add column if not exists promoted_hospital_id uuid references public.hospitals(id);
+alter table public.facility_registry add column if not exists promoted_at timestamptz;
+alter table public.facility_registry add column if not exists promoted_by uuid references auth.users(id);
 
 alter table public.facility_registry enable row level security;
 alter table public.facility_import_runs enable row level security;

@@ -2,7 +2,7 @@ import { supabase } from "@/lib/supabase";
 import type { Hospital } from "@/types/astra";
 
 function toHospital(row: any): Hospital {
-  return { id: row.id, name: row.name, type: row.type, address: row.address, phone: row.phone, location: { latitude: row.latitude, longitude: row.longitude, label: row.name }, readiness: row.readiness, beds: { icu: row.icu_available, emergency: row.emergency_beds_available, general: row.general_beds_available, ventilators: row.ventilators_available }, specialties: row.specialties ?? [], facilities: row.facilities ?? [], specialists: [], ambulanceAvailable: row.ambulance_available, traffic: row.traffic, dataLastUpdated: row.data_last_updated, dataSource: "ASTRA DEMO", isVerified: row.is_verified };
+  return { id: row.id, name: row.name, type: row.type, address: row.address, phone: row.phone, location: { latitude: row.latitude, longitude: row.longitude, label: row.name }, readiness: row.readiness, beds: { icu: row.icu_available, emergency: row.emergency_beds_available, general: row.general_beds_available, ventilators: row.ventilators_available }, specialties: row.specialties ?? [], facilities: row.facilities ?? [], specialists: [], ambulanceAvailable: row.ambulance_available, traffic: row.traffic, dataLastUpdated: row.data_last_updated, dataSource: row.data_source === "ASTRA DEMO" ? "ASTRA DEMO" : "ASTRA DEMO", isVerified: Boolean(row.is_verified), routingCandidate: row.routing_candidate === undefined ? undefined : Boolean(row.routing_candidate), verificationStatus: row.verification_status === "verified" ? "verified" : row.verification_status === "stale" ? "expired" : row.verification_status === "rejected" ? "unknown" : undefined };
 }
 
 export async function fetchLiveHospitals(): Promise<Hospital[]> {

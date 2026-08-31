@@ -5,7 +5,7 @@ export type AcceptanceEvent = { event: "INSERT" | "UPDATE" | "DELETE"; request: 
 export type AcceptanceEventHandler = (event: AcceptanceEvent) => void;
 
 function mapRequest(row: Record<string, unknown>): AcceptanceRequest {
-  return { id: String(row.id), hospitalId: String(row.hospital_id), status: row.status as AcceptanceRequest["status"], sentAt: String(row.sent_at), respondedAt: row.responded_at ? String(row.responded_at) : undefined, declineReason: row.decline_reason as DeclineReason | undefined, declineNotes: row.decline_notes ? String(row.decline_notes) : undefined, responderName: row.responder_name ? String(row.responder_name) : undefined };
+  return { id: String(row.id), hospitalId: String(row.hospital_id), status: row.status as AcceptanceRequest["status"], sentAt: String(row.sent_at), expiresAt: row.expires_at ? String(row.expires_at) : undefined, respondedAt: row.responded_at ? String(row.responded_at) : undefined, declineReason: row.decline_reason as DeclineReason | undefined, declineNotes: row.decline_notes ? String(row.decline_notes) : undefined, clarificationNotes: row.clarification_notes ? String(row.clarification_notes) : undefined, responderName: row.responder_name ? String(row.responder_name) : undefined };
 }
 
 export function subscribeToAcceptanceEvents(options: { emergencyId?: string; hospitalId?: string; onEvent: AcceptanceEventHandler; onError?: (message: string) => void }): () => void {

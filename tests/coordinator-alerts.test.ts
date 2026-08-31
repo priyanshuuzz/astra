@@ -6,6 +6,7 @@ const request = (status: AcceptanceRequest["status"]): AcceptanceRequest => ({ i
 
 describe("coordinator acceptance alerts", () => {
   it("marks accepted ambulance requests for sound delivery", () => { const alert = toCoordinatorAlert(request("accepted")); expect(alert.title).toBe("Ambulance request accepted"); expect(alert.shouldSound).toBe(true); expect(alert.tone).toBe("success"); });
-  it("keeps decline, timeout, and assigned-elsewhere events visible without sound", () => { for (const status of ["declined", "timeout", "assigned_elsewhere"] as const) expect(toCoordinatorAlert(request(status)).shouldSound).toBe(false); });
+  it("keeps decline, clarification, timeout, and assigned-elsewhere events visible without sound", () => { for (const status of ["declined", "needs_clarification", "timeout", "assigned_elsewhere"] as const) expect(toCoordinatorAlert(request(status)).shouldSound).toBe(false); });
+  it("explains a clarification request", () => { const alert = toCoordinatorAlert({ ...request("needs_clarification"), clarificationNotes: "Confirm onset window" }); expect(alert.title).toBe("Clarification requested"); expect(alert.body).toContain("Confirm onset window"); expect(alert.tone).toBe("urgent"); });
   it("creates an urgent alert for pending requests", () => expect(toCoordinatorAlert(request("pending")).tone).toBe("urgent"));
 });

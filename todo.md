@@ -73,3 +73,11 @@
 - [x] Document real-data source links, freshness, privacy, and service-key boundaries
 - [x] Add authorized hospital coordinator feeds for live beds, specialists, acceptance, and ambulance status
 - [ ] Promote reviewed facility records into verified routing candidates after coordinate/capability validation
+
+# Product Direction Audit
+
+- [x] Audit frontend, backend, schema, integrations, authentication, workflows, notifications, auditability, demo data, and TODOs against the updated ASTRA direction
+- [x] Produce architecture summary and KEEP/MODIFY/DEFER/REMOVE/NOT YET IMPLEMENTED gap analysis
+- [x] Identify and prioritize the highest-value clinical safety and referral-coordination changes
+- [x] Implement the first safe changes without removing compatible functionality
+- [x] Verify existing tests, TypeScript, and clearly labelled demo-mode behavior
