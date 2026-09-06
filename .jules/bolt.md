@@ -1,0 +1,3 @@
+## 2025-05-18 - Avoid array allocation and object instantiation in scoring inner loop
+**Learning:** `HospitalRecommendationEngine` runs repeatedly over candidate hospitals for ranking and referral filtering. Creating inline object literals (e.g. `{ light: 1, moderate: 1.35, heavy: 1.85 }`) or array operations like `[...specs, ...facs].map(...)` inside capability checks causes noticeable GC overhead and slowdowns under frequent recalculations.
+**Action:** Extract lookup tables to static constants at module scope and use direct index loops over hospital properties with early returns instead of array spreading/mapping in hot paths.
