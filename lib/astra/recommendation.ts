@@ -3,17 +3,47 @@ import type { CapabilityKey, Coordinates, EmergencyType, Hospital, HospitalScore
 export const SCORING_VERSION = "1.0";
 export const scoringWeights = { clinical: 0.35, travel: 0.30, readiness: 0.15, confidence: 0.10, reliability: 0.10 } as const;
 
+// Pre-computed constants and lookup tables to avoid object creation and math re-evaluations during hot scoring loop
+const DEG2RAD = Math.PI / 180;
+const EARTH_DIAMETER_KM = 12742; // 2 * Earth radius (6371km)
+const TRAFFIC_MULTIPLIERS = { light: 1, moderate: 1.35, heavy: 1.85 } as const;
+const READINESS_SCORES = { ready: 100, limited: 58, unavailable: 0, unknown: 30 } as const;
+
 const capabilityRequirements: Record<EmergencyType, CapabilityKey[]> = {
   cardiac: ["ECG", "Cardiology", "CathLab", "ICU"], stroke: ["CT", "Neurology"], trauma: ["TraumaCentre", "EmergencySurgery", "ICU", "BloodBank", "CT"], respiratory: ["EmergencyDepartment", "ICU", "VentilatorSupport"], bleeding: ["EmergencyDepartment", "BloodBank", "EmergencySurgery"], burns: ["BurnsUnit", "ICU"], obstetric: ["ObstetricEmergency", "EmergencySurgery"], pediatric: ["PediatricEmergency", "PICU"], general: ["EmergencyDepartment"], unknown: ["EmergencyDepartment"],
 };
 const aliases: Record<CapabilityKey, string[]> = { CT: ["ct"], MRI: ["mri"], ECG: ["ecg"], CathLab: ["cath lab", "cathlab"], Thrombectomy: ["thrombectomy"], Neurology: ["neurology", "stroke care"], Cardiology: ["cardiology"], TraumaCentre: ["trauma centre", "trauma center", "trauma"], EmergencySurgery: ["emergency surgery"], ICU: ["icu", "critical care", "cardiac icu"], PICU: ["picu"], NICU: ["nicu"], BloodBank: ["blood bank"], Dialysis: ["dialysis"], BurnsUnit: ["burn unit", "burns"], VentilatorSupport: ["ventilation", "ventilator", "respiratory icu"], EmergencyDepartment: ["emergency unit", "emergency department", "emergency"], ObstetricEmergency: ["obstetric", "labour emergency"], PediatricEmergency: ["pediatric emergency", "pediatric trauma", "pediatrics"] };
+
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 const norm = (value: string) => value.toLowerCase().replace(/[×_]/g, " ").trim();
 
 export function requiredCapabilities(type: EmergencyType): CapabilityKey[] { return capabilityRequirements[type]; }
-export function distanceKm(origin: Coordinates, destination: Coordinates): number { const radians = (degrees: number) => (degrees * Math.PI) / 180; const earthRadiusKm = 6371; const dLat = radians(destination.latitude - origin.latitude); const dLon = radians(destination.longitude - origin.longitude); const a = Math.sin(dLat / 2) ** 2 + Math.cos(radians(origin.latitude)) * Math.cos(radians(destination.latitude)) * Math.sin(dLon / 2) ** 2; return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); }
-export function freshnessScore(isoDate: string, now = Date.now()): number { const ageMinutes = Math.max(0, (now - new Date(isoDate).getTime()) / 60_000); if (ageMinutes <= 5) return 100; if (ageMinutes <= 15) return 82; if (ageMinutes <= 30) return 56; return 20; }
-export function estimateTravelMinutes(distance: number, traffic: Hospital["traffic"]): number { return Math.max(3, Math.round(distance * 2.25 * ({ light: 1, moderate: 1.35, heavy: 1.85 }[traffic]) + 2)); }
+
+// Optimization: Pre-computed DEG2RAD & combined Earth diameter reduces trigonometric overhead per call
+export function distanceKm(origin: Coordinates, destination: Coordinates): number {
+  const dLat = (destination.latitude - origin.latitude) * DEG2RAD;
+  const dLon = (destination.longitude - origin.longitude) * DEG2RAD;
+  const lat1 = origin.latitude * DEG2RAD;
+  const lat2 = destination.latitude * DEG2RAD;
+  const sinDLat = Math.sin(dLat / 2);
+  const sinDLon = Math.sin(dLon / 2);
+  const a = sinDLat * sinDLat + Math.cos(lat1) * Math.cos(lat2) * sinDLon * sinDLon;
+  return EARTH_DIAMETER_KM * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// Optimization: Date.parse avoids instantiating Date objects during recommendation scoring
+export function freshnessScore(isoDate: string, now = Date.now()): number {
+  const ageMinutes = Math.max(0, (now - Date.parse(isoDate)) / 60_000);
+  if (ageMinutes <= 5) return 100;
+  if (ageMinutes <= 15) return 82;
+  if (ageMinutes <= 30) return 56;
+  return 20;
+}
+
+// Optimization: TRAFFIC_MULTIPLIERS lookup table avoids creating inline object literal on every function call
+export function estimateTravelMinutes(distance: number, traffic: Hospital["traffic"]): number {
+  return Math.max(3, Math.round(distance * 2.25 * TRAFFIC_MULTIPLIERS[traffic] + 2));
+}
 
 export function isRoutingCandidate(hospital: Hospital): boolean {
   const { latitude, longitude } = hospital.location;
@@ -23,8 +53,39 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   const promoted = hospital.routingCandidate === undefined ? hospital.isVerified : hospital.routingCandidate;
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
-function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+// Optimization: READINESS_SCORES lookup table avoids creating inline object literal on every function call
+function readinessScore(readiness: Hospital["readiness"]): number {
+  return READINESS_SCORES[readiness];
+}
+
+// Optimization: Avoid array allocations [...hospital.specialties, ...hospital.facilities].map(norm)
+// Uses direct indexed loops and early exit to minimize allocations and comparisons
+function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+
+  const capAliases = aliases[capability];
+  if (!capAliases) return false;
+
+  const specs = hospital.specialties;
+  for (let i = 0; i < specs.length; i++) {
+    const spec = norm(specs[i]);
+    for (let k = 0; k < capAliases.length; k++) {
+      if (spec.includes(capAliases[k])) return true;
+    }
+  }
+
+  const facs = hospital.facilities;
+  for (let i = 0; i < facs.length; i++) {
+    const fac = norm(facs[i]);
+    for (let k = 0; k < capAliases.length; k++) {
+      if (fac.includes(capAliases[k])) return true;
+    }
+  }
+
+  return false;
+}
 
 export class HospitalRecommendationEngine {
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {
