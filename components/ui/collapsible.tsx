@@ -11,6 +11,9 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
   return (
     <View className="bg-background">
       <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityState={{ expanded: isOpen }}
+        accessibilityLabel={title}
         className="flex-row items-center gap-1.5"
         onPress={() => setIsOpen((value) => !value)}
         activeOpacity={0.8}
