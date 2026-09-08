@@ -9,6 +9,12 @@ export function registerStorageProxy(app: Express) {
       return;
     }
 
+    // Security check: Prevent path traversal and malicious characters
+    if (key.includes("..") || key.includes("\\") || key.includes("\0")) {
+      res.status(400).send("Invalid storage key");
+      return;
+    }
+
     if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
       res.status(500).send("Storage proxy not configured");
       return;
