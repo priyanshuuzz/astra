@@ -1,0 +1,3 @@
+## 2025-05-10 - Hospital Recommendation Engine Hot-Loop Allocations
+**Learning:** In `HospitalRecommendationEngine`, hospital scoring loops frequently re-normalized specialties/facilities arrays and allocated object literals and functions per hospital per capability check. Lazily caching normalized haystack arrays during scoring and pulling object/trig lookup constants to module scope reduced 50k ranking iterations from ~6.78s to ~2.77s (~59% reduction).
+**Action:** In scoring/ranking engines that process collections, avoid instantiating objects or running text normalizations repeatedly within inner predicate checks; cache per item during scoring evaluation.
