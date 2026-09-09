@@ -9,6 +9,18 @@ export function registerStorageProxy(app: Express) {
       return;
     }
 
+    // Security: Validate key against path traversal sequences
+    const decodedKey = decodeURIComponent(key);
+    if (
+      decodedKey.includes("..") ||
+      decodedKey.includes("\\") ||
+      key.includes("..") ||
+      key.includes("\\")
+    ) {
+      res.status(400).send("Invalid storage key path");
+      return;
+    }
+
     if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
       res.status(500).send("Storage proxy not configured");
       return;
