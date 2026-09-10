@@ -1,0 +1,3 @@
+## 2025-03-10 - Pre-normalize Hospital Specialties and Facilities during Multi-Capability Scoring
+**Learning:** During hospital recommendation engine evaluation, required capability checks fall back to scanning hospital specialties and facilities. Spreading and normalizing strings on every required capability check caused repeated array allocations and string regex transformations per hospital score call.
+**Action:** Pre-compute normalized `specialties` and `facilities` haystack once per hospital score calculation in `lib/astra/recommendation.ts` when scoring hospitals across multiple capabilities.
