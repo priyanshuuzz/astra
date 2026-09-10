@@ -1,11 +1,44 @@
 import type { Express } from "express";
 import { ENV } from "./env";
 
+/**
+ * Validates storage key to prevent path traversal vulnerabilities.
+ * Disallows directory traversal sequences (e.g. ".."), leading slashes,
+ * backslashes, and malformed URL encodings.
+ */
+export function isValidStorageKey(key: string): boolean {
+  if (!key || typeof key !== "string") return false;
+
+  let decodedKey: string;
+  try {
+    decodedKey = decodeURIComponent(key);
+  } catch {
+    return false;
+  }
+
+  // Normalize backslashes to forward slashes for path inspection
+  const normalized = decodedKey.replace(/\\/g, "/");
+
+  // Prevent leading slashes or absolute paths
+  if (normalized.startsWith("/")) return false;
+
+  // Prevent path traversal segments ("..")
+  const segments = normalized.split("/");
+  if (segments.some((segment) => segment === "..")) return false;
+
+  return true;
+}
+
 export function registerStorageProxy(app: Express) {
   app.get("/manus-storage/*", async (req, res) => {
     const key = (req.params as Record<string, string>)[0];
     if (!key) {
       res.status(400).send("Missing storage key");
+      return;
+    }
+
+    if (!isValidStorageKey(key)) {
+      res.status(400).send("Invalid storage key");
       return;
     }
 
