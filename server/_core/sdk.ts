@@ -39,8 +39,15 @@ class OAuthService {
   }
 
   private decodeState(state: string): string {
-    const redirectUri = atob(state);
-    return redirectUri;
+    try {
+      if (typeof Buffer !== "undefined") {
+        return Buffer.from(state, "base64").toString("utf-8");
+      }
+      return typeof atob !== "undefined" ? atob(state) : state;
+    } catch (error) {
+      console.warn("[OAuth] Failed to decode state parameter safely", error);
+      return "";
+    }
   }
 
   async getTokenByCode(code: string, state: string): Promise<ExchangeTokenResponse> {
