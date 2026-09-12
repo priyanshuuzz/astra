@@ -31,7 +31,7 @@ export function StatusPill({ status, label }: { status: Readiness; label?: strin
 
 export function PrimaryButton({ label, onPress, tone = "blue", icon, disabled = false }: { label: string; onPress: () => void; tone?: "blue" | "sos" | "quiet"; icon?: keyof typeof MaterialIcons.glyphMap; disabled?: boolean }) {
   const colors = tone === "sos" ? { bg: "#C82E38", text: "#FFFFFF" } : tone === "quiet" ? { bg: "#EAF3FA", text: "#0B5E9A" } : { bg: "#0B78C6", text: "#FFFFFF" };
-  return <Pressable accessibilityRole="button" accessibilityLabel={label} disabled={disabled} onPress={() => { haptic.light(); onPress(); }} style={({ pressed }) => [styles.primaryButton, { backgroundColor: colors.bg }, (pressed || disabled) && styles.pressed, disabled && { opacity: 0.5 }]}><View style={styles.buttonContent}>{icon && <MaterialIcons name={icon} size={19} color={colors.text} />}<Text style={[styles.buttonText, { color: colors.text }]}>{label}</Text></View></Pressable>;
+  return <Pressable accessibilityRole="button" accessibilityLabel={label} accessibilityState={{ disabled }} disabled={disabled} onPress={() => { haptic.light(); onPress(); }} style={({ pressed }) => [styles.primaryButton, { backgroundColor: colors.bg }, (pressed || disabled) && styles.pressed, disabled && { opacity: 0.5 }]}><View style={styles.buttonContent}>{icon && <MaterialIcons name={icon} size={19} color={colors.text} />}<Text style={[styles.buttonText, { color: colors.text }]}>{label}</Text></View></Pressable>;
 }
 
 export function SectionHeading({ eyebrow, title, action }: { eyebrow?: string; title: string; action?: ReactNode }) {

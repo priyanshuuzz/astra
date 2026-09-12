@@ -1,0 +1,3 @@
+## 2025-05-20 - React Native Disabled Button & Input A11y Metadata
+**Learning:** React Native `<Pressable>` components in standard custom button wrappers (like `PrimaryButton`) do not automatically expose `disabled` state to screen readers unless `accessibilityState={{ disabled }}` is explicitly provided. Likewise, `<Text>` elements with `onPress` handlers require `accessibilityRole="button"` to be announced as interactive controls.
+**Action:** Always include `accessibilityState={{ disabled }}` on custom button wrappers that accept `disabled`, and ensure `accessibilityRole="button"` and `accessibilityLabel` are attached to interactive text nodes and inputs.
