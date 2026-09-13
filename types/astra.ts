@@ -9,18 +9,89 @@ export type EmergencyType =
   | "burns"
   | "obstetric"
   | "pediatric"
+  | "snakebite"
   | "general"
   | "unknown";
+
+export type EmergencyState =
+  | "DRAFT"
+  | "SUBMITTED"
+  | "MATCHING"
+  | "REFERRAL_SENT"
+  | "PENDING_ACCEPTANCE"
+  | "CLARIFICATION_REQUIRED"
+  | "ACCEPTED"
+  | "DESTINATION_CONFIRMED"
+  | "DECLINED"
+  | "NEXT_CANDIDATE"
+  | "FAILOVER";
 
 export type Readiness = "ready" | "limited" | "unavailable" | "unknown";
 export type SpecialistStatus = "available" | "on_call" | "busy" | "unavailable" | "unknown";
 export type AmbulanceStatus = "requested" | "dispatched" | "arriving" | "picked_up" | "en_route" | "arrived";
-export type EmergencyStatus = "created" | "classifying" | "searching" | "requests_sent" | "waiting_acceptance" | "accepted" | "destination_locked" | "en_route" | "arrived" | "completed" | "declined" | "timeout" | "escalated" | "fallback" | "cancelled" | "selecting" | "recommended" | "active" | "redirected";
-export type VerificationStatus = "verified" | "unverified" | "expired" | "unknown";
-export type CapabilityKey = "CT" | "MRI" | "ECG" | "CathLab" | "Thrombectomy" | "Neurology" | "Cardiology" | "TraumaCentre" | "EmergencySurgery" | "ICU" | "PICU" | "NICU" | "BloodBank" | "Dialysis" | "BurnsUnit" | "VentilatorSupport" | "EmergencyDepartment" | "ObstetricEmergency" | "PediatricEmergency";
-export type DeclineReason = "capability_unavailable" | "clinical_team_unavailable" | "capacity_unavailable" | "department_saturated" | "equipment_unavailable" | "patient_unsuitable" | "other";
+export type EmergencyStatus =
+  | "created"
+  | "classifying"
+  | "searching"
+  | "requests_sent"
+  | "waiting_acceptance"
+  | "accepted"
+  | "destination_locked"
+  | "en_route"
+  | "arrived"
+  | "completed"
+  | "declined"
+  | "timeout"
+  | "escalated"
+  | "fallback"
+  | "cancelled"
+  | "selecting"
+  | "recommended"
+  | "active"
+  | "redirected";
 
-export interface CapabilityAttestation { available: boolean; verificationStatus: VerificationStatus; source: string; attestedBy: string; lastVerified: string; }
+export type VerificationStatus = "verified" | "unverified" | "expired" | "unknown";
+
+export type CapabilityKey =
+  | "CT"
+  | "MRI"
+  | "ECG"
+  | "CathLab"
+  | "Thrombectomy"
+  | "Neurology"
+  | "Cardiology"
+  | "TraumaCentre"
+  | "EmergencySurgery"
+  | "ICU"
+  | "PICU"
+  | "NICU"
+  | "BloodBank"
+  | "Dialysis"
+  | "BurnsUnit"
+  | "VentilatorSupport"
+  | "EmergencyDepartment"
+  | "ObstetricEmergency"
+  | "PediatricEmergency"
+  | "Antivenom"
+  | "AnaphylaxisManagement"
+  | "RenalSupport";
+
+export type DeclineReason =
+  | "capability_unavailable"
+  | "clinical_team_unavailable"
+  | "capacity_unavailable"
+  | "department_saturated"
+  | "equipment_unavailable"
+  | "patient_unsuitable"
+  | "other";
+
+export interface CapabilityAttestation {
+  available: boolean;
+  verificationStatus: VerificationStatus;
+  source: string;
+  attestedBy: string;
+  lastVerified: string;
+}
 
 export interface Coordinates {
   latitude: number;
@@ -60,7 +131,6 @@ export interface Hospital {
   dataLastUpdated: string;
   dataSource: "ASTRA DEMO";
   isVerified: boolean;
-  /** True only when this facility has passed the promotion boundary for routing. */
   routingCandidate?: boolean;
   layer?: 1 | 2 | 3 | 4;
   classifications?: string[];
@@ -109,11 +179,62 @@ export interface Ambulance {
   driverName: string;
 }
 
+export interface ClinicalIntakePacket {
+  originalTranscript: string;
+  language: "en" | "hi" | "hinglish";
+  suspectedCondition: string;
+  extractedSymptoms: string[];
+  onsetMinutes: number | "UNKNOWN";
+  acuity: "low" | "moderate" | "high" | "critical" | "UNKNOWN";
+  requiredCapabilities: CapabilityKey[];
+  confidence: number;
+  clarificationQuestions?: string[];
+}
+
+export interface AstraAuditEvent {
+  id: string;
+  emergencyId: string;
+  eventType:
+    | "EMERGENCY_CREATED"
+    | "CLINICAL_INTAKE_PARSED"
+    | "CLINICAL_DATA_UPDATED"
+    | "HOSPITAL_MATCHED"
+    | "REFERRAL_SENT"
+    | "CLARIFICATION_REQUESTED"
+    | "CLARIFICATION_ANSWERED"
+    | "REFERRAL_ACCEPTED"
+    | "REFERRAL_DECLINED"
+    | "DESTINATION_CONFIRMED"
+    | "OFFLINE_QUEUED"
+    | "OFFLINE_SYNCED";
+  timestamp: string;
+  actorRole: UserRole;
+  actorId?: string;
+  details: string;
+  payload?: Record<string, unknown>;
+}
+
+export type AcceptanceStatus = "pending" | "accepted" | "declined" | "needs_clarification" | "timeout" | "assigned_elsewhere";
+
+export interface AcceptanceRequest {
+  id: string;
+  hospitalId: string;
+  status: AcceptanceStatus;
+  sentAt: string;
+  expiresAt?: string;
+  respondedAt?: string;
+  declineReason?: DeclineReason;
+  declineNotes?: string;
+  clarificationNotes?: string;
+  responderName?: string;
+}
+
 export interface EmergencySession {
   id: string;
   type: EmergencyType;
   startedAt: string;
   status: EmergencyStatus;
+  currentState?: EmergencyState;
   patientLocation: Coordinates;
   selectedHospitalId?: string;
   recommendation?: HospitalScore;
@@ -125,12 +246,12 @@ export interface EmergencySession {
   onsetMinutes?: number;
   requiredCapabilities?: CapabilityKey[];
   acceptanceRequests?: AcceptanceRequest[];
+  intakePacket?: ClinicalIntakePacket;
+  clarificationQuestion?: string;
+  clarificationAnswer?: string;
+  auditEvents?: AstraAuditEvent[];
   finalOutcome?: "arrived" | "fallback" | "cancelled";
 }
-
-export type AcceptanceStatus = "pending" | "accepted" | "declined" | "needs_clarification" | "timeout" | "assigned_elsewhere";
-
-export interface AcceptanceRequest { id: string; hospitalId: string; status: AcceptanceStatus; sentAt: string; expiresAt?: string; respondedAt?: string; declineReason?: DeclineReason; declineNotes?: string; clarificationNotes?: string; responderName?: string; }
 
 export interface AstraNotification {
   id: string;
@@ -150,7 +271,7 @@ export const emergencyLabels: Record<EmergencyType, string> = {
   burns: "Burns",
   obstetric: "Pregnancy emergency",
   pediatric: "Child emergency",
+  snakebite: "Snakebite emergency",
   general: "General emergency",
   unknown: "I don’t know",
 };
-
