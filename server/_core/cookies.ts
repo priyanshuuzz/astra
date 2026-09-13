@@ -24,7 +24,9 @@ function isSecureRequest(req: Request) {
  * e.g., "3000-xxx.manuspre.computer" -> ".manuspre.computer"
  * This allows cookies set by 3000-xxx to be read by 8081-xxx
  */
-function getParentDomain(hostname: string): string | undefined {
+function getParentDomain(hostname: string | undefined): string | undefined {
+  if (!hostname) return undefined;
+
   // Don't set domain for localhost or IP addresses
   if (LOCAL_HOSTS.has(hostname) || isIpAddress(hostname)) {
     return undefined;
