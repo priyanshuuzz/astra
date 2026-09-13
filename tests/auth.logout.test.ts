@@ -41,9 +41,8 @@ function createAuthContext(): { ctx: TrpcContext; clearedCookies: CookieCall[] }
   return { ctx, clearedCookies };
 }
 
-// TODO: Remove `.skip` below once you implement user authentication
-describe.skip("auth.logout", () => {
-  it("clears the session cookie and reports success", async () => {
+describe("auth.logout", () => {
+  it("clears the session cookie and reports success for authenticated user", async () => {
     const { ctx, clearedCookies } = createAuthContext();
     const caller = appRouter.createCaller(ctx);
 
@@ -59,5 +58,21 @@ describe.skip("auth.logout", () => {
       httpOnly: true,
       path: "/",
     });
+  });
+
+  it("rejects unauthenticated logout requests", async () => {
+    const unauthCtx: TrpcContext = {
+      user: null,
+      req: {
+        protocol: "https",
+        headers: {},
+      } as TrpcContext["req"],
+      res: {
+        clearCookie: () => {},
+      } as unknown as TrpcContext["res"],
+    };
+    const caller = appRouter.createCaller(unauthCtx);
+
+    await expect(caller.auth.logout()).rejects.toThrow("Please login");
   });
 });
