@@ -1,0 +1,3 @@
+## 2026-03-30 - WeakMap Memoization for Object-Level Derived Arrays in Hot Loops
+**Learning:** During hospital scoring/ranking, repeated calls to `hasCapability` caused frequent array allocations (`[...hospital.specialties, ...hospital.facilities].map(...)`) and string normalizations for identical hospital objects. Caching derived string arrays in a `WeakMap<Hospital, string[]>` eliminated garbage collection churn and memory allocations without memory leaks or stale state issues when object references are stable.
+**Action:** When performing repeated evaluation or filtering on immutable domain model entities in hot calculation paths, use `WeakMap` to cache normalized/preprocessed representations.
