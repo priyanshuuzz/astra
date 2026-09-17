@@ -1,0 +1,3 @@
+## 2025-05-18 - Pre-compute Hospital Capability Search Haystack
+**Learning:** Checking capability requirements for hospitals repeatedly normalized specialty and facility strings and created intermediate arrays (`[...hospital.specialties, ...hospital.facilities].map(norm)`). Pre-computing a single normalized string array per hospital evaluation pass and using early-exit loops reduced recommendation scoring execution time by ~50%.
+**Action:** When evaluating multiple items against multiple property/alias criteria in loop-heavy domain logic, pre-compute normalized search representations once per item and pass them through to helper matchers.

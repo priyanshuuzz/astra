@@ -24,15 +24,83 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
 function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+/**
+ * Normalizes hospital specialties and facilities into a single string array.
+ * Built once per hospital scoring pass to avoid redundant string normalization and array allocations.
+ */
+function getNormalizedHaystack(hospital: Hospital): string[] {
+  const haystack: string[] = [];
+  const specialties = hospital.specialties;
+  for (let i = 0; i < specialties.length; i++) {
+    haystack.push(norm(specialties[i]));
+  }
+  const facilities = hospital.facilities;
+  for (let i = 0; i < facilities.length; i++) {
+    haystack.push(norm(facilities[i]));
+  }
+  return haystack;
+}
+
+/**
+ * Checks if a hospital has a specific capability.
+ * Uses early-exit loop comparison over pre-normalized haystack to avoid array allocations during matching.
+ */
+function hasCapability(hospital: Hospital, capability: CapabilityKey, precomputedHaystack?: string[]): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+
+  const haystack = precomputedHaystack ?? getNormalizedHaystack(hospital);
+  const capAliases = aliases[capability];
+  for (let i = 0; i < capAliases.length; i++) {
+    const alias = capAliases[i];
+    for (let j = 0; j < haystack.length; j++) {
+      if (haystack[j].includes(alias)) return true;
+    }
+  }
+  return false;
+}
 
 export class HospitalRecommendationEngine {
+  /**
+   * Scores a single hospital for a given emergency type and location.
+   * Optimised to compute haystack once per hospital and reuse timestamp across calculations.
+   */
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {
-    const required = requiredCapabilities(type); const gateFailures = required.filter((capability) => !hasCapability(hospital, capability)); const eligible = isRoutingCandidate(hospital) && gateFailures.length === 0 && hospital.readiness !== "unavailable";
-    const matched = required.length - gateFailures.length; const clinical = clamp((matched / Math.max(required.length, 1)) * 100); const distance = distanceKm(patientLocation, hospital.location); const eta = estimateTravelMinutes(distance, hospital.traffic); const travel = clamp(100 - eta * 5.4); const readiness = readinessScore(hospital.readiness); const freshness = freshnessScore(hospital.dataLastUpdated, now); const confidence = hospital.verificationStatus === "verified" || hospital.isVerified ? 100 : hospital.verificationStatus === "unverified" ? 45 : 25; const reliability = hospital.isVerified ? 90 : 55; const specialist = clamp(hospital.specialists.some((person) => person.status === "available" || person.status === "on_call") ? 90 : 40); const overall = Math.round(clamp(clinical * scoringWeights.clinical + travel * scoringWeights.travel + readiness * scoringWeights.readiness + confidence * scoringWeights.confidence + reliability * scoringWeights.reliability));
+    const required = requiredCapabilities(type);
+    const haystack = getNormalizedHaystack(hospital);
+    const gateFailures: CapabilityKey[] = [];
+    for (let i = 0; i < required.length; i++) {
+      const cap = required[i];
+      if (!hasCapability(hospital, cap, haystack)) {
+        gateFailures.push(cap);
+      }
+    }
+
+    const eligible = isRoutingCandidate(hospital) && gateFailures.length === 0 && hospital.readiness !== "unavailable";
+    const matched = required.length - gateFailures.length;
+    const clinical = clamp((matched / Math.max(required.length, 1)) * 100);
+    const distance = distanceKm(patientLocation, hospital.location);
+    const eta = estimateTravelMinutes(distance, hospital.traffic);
+    const travel = clamp(100 - eta * 5.4);
+    const readiness = readinessScore(hospital.readiness);
+    const freshness = freshnessScore(hospital.dataLastUpdated, now);
+    const confidence = hospital.verificationStatus === "verified" || hospital.isVerified ? 100 : hospital.verificationStatus === "unverified" ? 45 : 25;
+    const reliability = hospital.isVerified ? 90 : 55;
+    const specialist = clamp(hospital.specialists.some((person) => person.status === "available" || person.status === "on_call") ? 90 : 40);
+    const overall = Math.round(clamp(clinical * scoringWeights.clinical + travel * scoringWeights.travel + readiness * scoringWeights.readiness + confidence * scoringWeights.confidence + reliability * scoringWeights.reliability));
     const reasons = eligible ? [`${matched}/${required.length} required capabilities verified`, `${eta} min estimated travel time`, freshness >= 82 ? "Registry status recently confirmed" : "Registry status is ageing"] : !isRoutingCandidate(hospital) ? ["Not an active verified routing candidate", "ASTRA requires verified capability and coordinate review before routing"] : [`Excluded by hard clinical gate: ${gateFailures.join(", ")}`, "ASTRA will not route to a capability-inadequate facility", `${eta} min estimated travel time`];
     return { hospitalId: hospital.id, overall, clinical: Math.round(clinical), availability: Math.round(readiness), specialist: Math.round(specialist), travel: Math.round(travel), readiness: Math.round(readiness), freshness: Math.round(freshness), distanceKm: Number(distance.toFixed(1)), etaMinutes: eta, reasons, eligible, gateFailures, scoringVersion: SCORING_VERSION };
   }
-  rank(type: EmergencyType, patientLocation: Coordinates, hospitals: Hospital[]): RankedHospital[] { return hospitals.map((hospital) => ({ hospital, score: this.score(type, patientLocation, hospital) })).filter(({ score }) => score.eligible).sort((a, b) => b.score.overall - a.score.overall || a.score.etaMinutes - b.score.etaMinutes); }
-  rankWithExcluded(type: EmergencyType, patientLocation: Coordinates, hospitals: Hospital[]): { eligible: RankedHospital[]; excluded: RankedHospital[] } { const scored = hospitals.map((hospital) => ({ hospital, score: this.score(type, patientLocation, hospital) })); return { eligible: scored.filter(({ score }) => score.eligible).sort((a, b) => b.score.overall - a.score.overall || a.score.etaMinutes - b.score.etaMinutes), excluded: scored.filter(({ score }) => !score.eligible).sort((a, b) => a.score.etaMinutes - b.score.etaMinutes) }; }
+
+  rank(type: EmergencyType, patientLocation: Coordinates, hospitals: Hospital[]): RankedHospital[] {
+    const now = Date.now();
+    return hospitals.map((hospital) => ({ hospital, score: this.score(type, patientLocation, hospital, now) })).filter(({ score }) => score.eligible).sort((a, b) => b.score.overall - a.score.overall || a.score.etaMinutes - b.score.etaMinutes);
+  }
+
+  rankWithExcluded(type: EmergencyType, patientLocation: Coordinates, hospitals: Hospital[]): { eligible: RankedHospital[]; excluded: RankedHospital[] } {
+    const now = Date.now();
+    const scored = hospitals.map((hospital) => ({ hospital, score: this.score(type, patientLocation, hospital, now) }));
+    return { eligible: scored.filter(({ score }) => score.eligible).sort((a, b) => b.score.overall - a.score.overall || a.score.etaMinutes - b.score.etaMinutes), excluded: scored.filter(({ score }) => !score.eligible).sort((a, b) => a.score.etaMinutes - b.score.etaMinutes) };
+  }
 }
