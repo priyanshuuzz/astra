@@ -99,7 +99,31 @@ export async function transcribeAudio(
     let audioBuffer: Buffer;
     let mimeType: string;
     try {
-      const response = await fetch(options.audioUrl);
+      let parsedUrl: URL;
+      try {
+        parsedUrl = new URL(options.audioUrl);
+      } catch {
+        return {
+          error: "Invalid audio URL format",
+          code: "INVALID_FORMAT",
+        };
+      }
+
+      if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") {
+        return {
+          error: "Invalid audio URL scheme: only http and https are allowed",
+          code: "INVALID_FORMAT",
+        };
+      }
+
+      if (isForbiddenHost(parsedUrl.hostname)) {
+        return {
+          error: "Forbidden audio URL host: internal or private IP address requested",
+          code: "INVALID_FORMAT",
+        };
+      }
+
+      const response = await fetch(parsedUrl.toString());
       if (!response.ok) {
         return {
           error: "Failed to download audio file",
@@ -191,6 +215,33 @@ export async function transcribeAudio(
       details: error instanceof Error ? error.message : "An unexpected error occurred",
     };
   }
+}
+
+/**
+ * Helper function to check if a hostname is private, loopback, or metadata service (SSRF prevention)
+ */
+function isForbiddenHost(hostname: string): boolean {
+  const host = hostname.toLowerCase().replace(/^\[|\]$/g, "");
+  if (host === "localhost" || host.endsWith(".localhost") || host === "0.0.0.0") {
+    return true;
+  }
+  const ipv4Match = host.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (ipv4Match) {
+    const [, a, b] = ipv4Match.map(Number);
+    if (a === 127 || a === 10 || a === 0) return true;
+    if (a === 169 && b === 254) return true;
+    if (a === 192 && b === 168) return true;
+    if (a === 172 && b >= 16 && b <= 31) return true;
+  }
+  if (
+    host === "::1" ||
+    host.startsWith("fe80:") ||
+    host.startsWith("fc") ||
+    host.startsWith("fd")
+  ) {
+    return true;
+  }
+  return false;
 }
 
 /**
