@@ -1,10 +1,105 @@
 import { useMemo, useState } from "react";
-import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { useRouter } from "expo-router";
 import { AstraScreen, DemoPill, PrimaryButton, SectionHeading, StatusPill } from "@/components/astra/ui";
 import { useAstra } from "@/lib/astra/store";
 import { HospitalRecommendationEngine } from "@/lib/astra/recommendation";
 import { emergencyLabels, type EmergencyType } from "@/types/astra";
 
-export default function ReferralScreen() { const router = useRouter(); const { hospitals, currentLocation, beginEmergency } = useAstra(); const [type, setType] = useState<EmergencyType>("stroke"); const [facility, setFacility] = useState("District Medical Centre"); const [summary, setSummary] = useState("Sudden neurological symptoms; referring for capability-confirmed care."); const engine = useMemo(() => new HospitalRecommendationEngine(), []); const candidates = engine.rankWithExcluded(type, currentLocation, hospitals).eligible.slice(0, 3); return <AstraScreen back title="Refer patient"><ScrollView contentContainerStyle={styles.content}><View style={styles.header}><DemoPill /><Text style={styles.title}>Refer patient</Text><Text style={styles.subtitle}>A hospital-to-hospital transfer request using ASTRA’s capability registry and acceptance handshake.</Text></View><View style={styles.form}><Text style={styles.label}>EMERGENCY CATEGORY</Text><View style={styles.chips}>{(["stroke", "cardiac", "trauma", "general"] as EmergencyType[]).map((item) => <Text key={item} onPress={() => setType(item)} style={[styles.chip, type === item && styles.chipActive]}>{emergencyLabels[item]}</Text>)}</View><Text style={styles.label}>CURRENT FACILITY</Text><TextInput value={facility} onChangeText={setFacility} style={styles.input} /><Text style={styles.label}>CLINICAL SUMMARY</Text><TextInput value={summary} onChangeText={setSummary} multiline style={[styles.input, styles.multiline]} /><Text style={styles.helper}>Minimum necessary information only. Patient identity is not required for the demo referral.</Text></View><SectionHeading title="Receiving hospitals" /><View style={styles.candidates}>{candidates.map(({ hospital, score }) => <View key={hospital.id} style={styles.candidate}><View style={{ flex: 1 }}><Text style={styles.candidateName}>{hospital.name}</Text><Text style={styles.candidateMeta}>{score.etaMinutes} min · {score.distanceKm} km · {score.scoringVersion}</Text><Text style={styles.candidateReason}>{score.reasons[0]}</Text></View><StatusPill status={hospital.readiness} /></View>)}</View><PrimaryButton label="Find receiving hospital & request acceptance" icon="send" onPress={() => { beginEmergency(type, currentLocation); router.push("/emergency" as never); }} /><Text style={styles.simulated}>DEMO DATA · Requests and responses are simulated unless connected to a live hospital system.</Text></ScrollView></AstraScreen>; }
-const styles = StyleSheet.create({ content: { paddingBottom: 40 }, header: { paddingHorizontal: 20, paddingTop: 15 }, title: { color: "#0B2942", fontSize: 28, fontWeight: "900", marginTop: 20 }, subtitle: { color: "#536273", fontSize: 12, lineHeight: 18, marginTop: 6 }, form: { margin: 20, padding: 16, backgroundColor: "#FFFFFF", borderRadius: 18, borderWidth: 1, borderColor: "#E4EBF1" }, label: { color: "#536273", fontSize: 10, letterSpacing: 1, fontWeight: "900", marginTop: 12, marginBottom: 7 }, chips: { flexDirection: "row", flexWrap: "wrap", gap: 7 }, chip: { paddingHorizontal: 10, paddingVertical: 8, borderRadius: 10, backgroundColor: "#F4F8FB", color: "#536273", fontSize: 11 }, chipActive: { backgroundColor: "#0B78C6", color: "#FFFFFF", fontWeight: "800" }, input: { minHeight: 45, borderWidth: 1, borderColor: "#D7E2EA", borderRadius: 11, paddingHorizontal: 12, color: "#0B2942", fontSize: 12 }, multiline: { minHeight: 80, paddingTop: 12, textAlignVertical: "top" }, helper: { color: "#748395", fontSize: 10, lineHeight: 15, marginTop: 10 }, candidates: { marginHorizontal: 20, marginBottom: 18, padding: 14, borderRadius: 18, backgroundColor: "#FFFFFF", borderWidth: 1, borderColor: "#E4EBF1" }, candidate: { flexDirection: "row", alignItems: "center", gap: 10, paddingVertical: 11, borderBottomWidth: 1, borderBottomColor: "#EDF2F6" }, candidateName: { color: "#0B2942", fontSize: 13, fontWeight: "800" }, candidateMeta: { color: "#0B78C6", fontSize: 10, marginTop: 3, fontWeight: "800" }, candidateReason: { color: "#536273", fontSize: 10, marginTop: 3 }, simulated: { color: "#8A98A6", textAlign: "center", fontSize: 10, marginHorizontal: 30, marginTop: 14, lineHeight: 15 } });
+export default function ReferralScreen() {
+  const router = useRouter();
+  const { hospitals, currentLocation, beginEmergency } = useAstra();
+  const [type, setType] = useState<EmergencyType>("stroke");
+  const [facility, setFacility] = useState("District Medical Centre");
+  const [summary, setSummary] = useState("Sudden neurological symptoms; referring for capability-confirmed care.");
+  const engine = useMemo(() => new HospitalRecommendationEngine(), []);
+  const candidates = engine.rankWithExcluded(type, currentLocation, hospitals).eligible.slice(0, 3);
+
+  return (
+    <AstraScreen back title="Refer patient">
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.header}>
+          <DemoPill />
+          <Text style={styles.title}>Refer patient</Text>
+          <Text style={styles.subtitle}>
+            A hospital-to-hospital transfer request using ASTRA’s capability registry and acceptance handshake.
+          </Text>
+        </View>
+        <View style={styles.form}>
+          <Text style={styles.label}>EMERGENCY CATEGORY</Text>
+          <View style={styles.chips}>
+            {(["stroke", "cardiac", "trauma", "general"] as EmergencyType[]).map((item) => (
+              <Pressable
+                key={item}
+                accessibilityRole="button"
+                accessibilityState={{ selected: type === item }}
+                accessibilityLabel={`${emergencyLabels[item]} emergency category`}
+                onPress={() => setType(item)}
+                style={({ pressed }) => [styles.chip, type === item && styles.chipActive, pressed && styles.chipPressed]}
+              >
+                <Text style={[styles.chipText, type === item && styles.chipTextActive]}>{emergencyLabels[item]}</Text>
+              </Pressable>
+            ))}
+          </View>
+          <Text style={styles.label}>CURRENT FACILITY</Text>
+          <TextInput value={facility} onChangeText={setFacility} style={styles.input} />
+          <Text style={styles.label}>CLINICAL SUMMARY</Text>
+          <TextInput value={summary} onChangeText={setSummary} multiline style={[styles.input, styles.multiline]} />
+          <Text style={styles.helper}>
+            Minimum necessary information only. Patient identity is not required for the demo referral.
+          </Text>
+        </View>
+        <SectionHeading title="Receiving hospitals" />
+        <View style={styles.candidates}>
+          {candidates.map(({ hospital, score }) => (
+            <View key={hospital.id} style={styles.candidate}>
+              <View style={{ flex: 1 }}>
+                <Text style={styles.candidateName}>{hospital.name}</Text>
+                <Text style={styles.candidateMeta}>
+                  {score.etaMinutes} min · {score.distanceKm} km · {score.scoringVersion}
+                </Text>
+                <Text style={styles.candidateReason}>{score.reasons[0]}</Text>
+              </View>
+              <StatusPill status={hospital.readiness} />
+            </View>
+          ))}
+        </View>
+        <PrimaryButton
+          label="Find receiving hospital & request acceptance"
+          icon="send"
+          onPress={() => {
+            beginEmergency(type, currentLocation);
+            router.push("/emergency" as never);
+          }}
+        />
+        <Text style={styles.simulated}>
+          DEMO DATA · Requests and responses are simulated unless connected to a live hospital system.
+        </Text>
+      </ScrollView>
+    </AstraScreen>
+  );
+}
+
+const styles = StyleSheet.create({
+  content: { paddingBottom: 40 },
+  header: { paddingHorizontal: 20, paddingTop: 15 },
+  title: { color: "#0B2942", fontSize: 28, fontWeight: "900", marginTop: 20 },
+  subtitle: { color: "#536273", fontSize: 12, lineHeight: 18, marginTop: 6 },
+  form: { margin: 20, padding: 16, backgroundColor: "#FFFFFF", borderRadius: 18, borderWidth: 1, borderColor: "#E4EBF1" },
+  label: { color: "#536273", fontSize: 10, letterSpacing: 1, fontWeight: "900", marginTop: 12, marginBottom: 7 },
+  chips: { flexDirection: "row", flexWrap: "wrap", gap: 7 },
+  chip: { paddingHorizontal: 12, paddingVertical: 8, borderRadius: 10, backgroundColor: "#F4F8FB" },
+  chipActive: { backgroundColor: "#0B78C6" },
+  chipPressed: { opacity: 0.75 },
+  chipText: { color: "#536273", fontSize: 11 },
+  chipTextActive: { color: "#FFFFFF", fontWeight: "800" },
+  input: { minHeight: 45, borderWidth: 1, borderColor: "#D7E2EA", borderRadius: 11, paddingHorizontal: 12, color: "#0B2942", fontSize: 12 },
+  multiline: { minHeight: 80, paddingTop: 12, textAlignVertical: "top" },
+  helper: { color: "#748395", fontSize: 10, lineHeight: 15, marginTop: 10 },
+  candidates: { marginHorizontal: 20, marginBottom: 18, padding: 14, borderRadius: 18, backgroundColor: "#FFFFFF", borderWidth: 1, borderColor: "#E4EBF1" },
+  candidate: { flexDirection: "row", alignItems: "center", gap: 10, paddingVertical: 11, borderBottomWidth: 1, borderBottomColor: "#EDF2F6" },
+  candidateName: { color: "#0B2942", fontSize: 13, fontWeight: "800" },
+  candidateMeta: { color: "#0B78C6", fontSize: 10, marginTop: 3, fontWeight: "800" },
+  candidateReason: { color: "#536273", fontSize: 10, marginTop: 3 },
+  simulated: { color: "#8A98A6", textAlign: "center", fontSize: 10, marginHorizontal: 30, marginTop: 14, lineHeight: 15 },
+});
