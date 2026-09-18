@@ -24,11 +24,27 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
 function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+// Bolt optimization: Accept optional pre-normalized haystack to avoid allocating array and re-normalizing strings on every capability check.
+function hasCapability(hospital: Hospital, capability: CapabilityKey, cachedHaystack?: string[]): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+  const haystack = cachedHaystack ?? [...hospital.specialties, ...hospital.facilities].map(norm);
+  return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias)));
+}
 
 export class HospitalRecommendationEngine {
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {
-    const required = requiredCapabilities(type); const gateFailures = required.filter((capability) => !hasCapability(hospital, capability)); const eligible = isRoutingCandidate(hospital) && gateFailures.length === 0 && hospital.readiness !== "unavailable";
+    const required = requiredCapabilities(type);
+    // Bolt optimization: Pre-compute normalized haystack once per hospital score evaluation instead of re-normalizing per capability lookup.
+    let cachedHaystack: string[] | undefined;
+    const getHaystack = () => {
+      if (!cachedHaystack) {
+        cachedHaystack = [...hospital.specialties, ...hospital.facilities].map(norm);
+      }
+      return cachedHaystack;
+    };
+    const gateFailures = required.filter((capability) => !hasCapability(hospital, capability, hospital.capabilities?.[capability] ? undefined : getHaystack())); const eligible = isRoutingCandidate(hospital) && gateFailures.length === 0 && hospital.readiness !== "unavailable";
     const matched = required.length - gateFailures.length; const clinical = clamp((matched / Math.max(required.length, 1)) * 100); const distance = distanceKm(patientLocation, hospital.location); const eta = estimateTravelMinutes(distance, hospital.traffic); const travel = clamp(100 - eta * 5.4); const readiness = readinessScore(hospital.readiness); const freshness = freshnessScore(hospital.dataLastUpdated, now); const confidence = hospital.verificationStatus === "verified" || hospital.isVerified ? 100 : hospital.verificationStatus === "unverified" ? 45 : 25; const reliability = hospital.isVerified ? 90 : 55; const specialist = clamp(hospital.specialists.some((person) => person.status === "available" || person.status === "on_call") ? 90 : 40); const overall = Math.round(clamp(clinical * scoringWeights.clinical + travel * scoringWeights.travel + readiness * scoringWeights.readiness + confidence * scoringWeights.confidence + reliability * scoringWeights.reliability));
     const reasons = eligible ? [`${matched}/${required.length} required capabilities verified`, `${eta} min estimated travel time`, freshness >= 82 ? "Registry status recently confirmed" : "Registry status is ageing"] : !isRoutingCandidate(hospital) ? ["Not an active verified routing candidate", "ASTRA requires verified capability and coordinate review before routing"] : [`Excluded by hard clinical gate: ${gateFailures.join(", ")}`, "ASTRA will not route to a capability-inadequate facility", `${eta} min estimated travel time`];
     return { hospitalId: hospital.id, overall, clinical: Math.round(clinical), availability: Math.round(readiness), specialist: Math.round(specialist), travel: Math.round(travel), readiness: Math.round(readiness), freshness: Math.round(freshness), distanceKm: Number(distance.toFixed(1)), etaMinutes: eta, reasons, eligible, gateFailures, scoringVersion: SCORING_VERSION };

@@ -1,0 +1,3 @@
+## 2025-05-18 - Avoid redundant string normalization in repeated capability lookups
+**Learning:** In scoring loops (e.g., `HospitalRecommendationEngine.score`), checking multiple capability requirements per hospital repeatedly transformed hospital specialty/facility strings with regex operations and array allocations (`[...specialties, ...facilities].map(norm)`). Lazy evaluation and passing a shared normalized haystack per hospital pass completely eliminates per-capability allocations.
+**Action:** When evaluating multiple items against a fixed set of capabilities/attributes, lazy-compute the normalized string array once per hospital or pre-normalize at store load.
