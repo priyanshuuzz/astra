@@ -27,22 +27,52 @@ async function findAvailablePort(startPort: number = 3000): Promise<number> {
   throw new Error(`No available port found starting from ${startPort}`);
 }
 
+export function isAllowedOrigin(origin: string | undefined): boolean {
+  if (!origin) return false;
+  try {
+    const parsed = new URL(origin);
+    const hostname = parsed.hostname;
+
+    // Allow localhost and loopback IP addresses (including IPv6 bracketed notation)
+    const cleanHostname = hostname.replace(/^\[|\]$/g, "");
+    if (cleanHostname === "localhost" || cleanHostname === "127.0.0.1" || cleanHostname === "::1") {
+      return true;
+    }
+
+    // Allow trusted platform domain and subdomains
+    if (hostname === "manuspre.computer" || hostname.endsWith(".manuspre.computer")) {
+      return true;
+    }
+
+    // Check against explicitly configured preview or proxy URLs
+    if (process.env.EXPO_WEB_PREVIEW_URL && origin === process.env.EXPO_WEB_PREVIEW_URL) {
+      return true;
+    }
+    if (process.env.EXPO_PACKAGER_PROXY_URL && origin === process.env.EXPO_PACKAGER_PROXY_URL) {
+      return true;
+    }
+  } catch {
+    return false;
+  }
+  return false;
+}
+
 async function startServer() {
   const app = express();
   const server = createServer(app);
 
-  // Enable CORS for all routes - reflect the request origin to support credentials
+  // Validate CORS requests to prevent arbitrary origin reflection with credentials
   app.use((req, res, next) => {
     const origin = req.headers.origin;
-    if (origin) {
+    if (origin && isAllowedOrigin(origin)) {
       res.header("Access-Control-Allow-Origin", origin);
+      res.header("Access-Control-Allow-Credentials", "true");
     }
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested-With, Content-Type, Accept, Authorization",
     );
-    res.header("Access-Control-Allow-Credentials", "true");
 
     // Handle preflight requests
     if (req.method === "OPTIONS") {
