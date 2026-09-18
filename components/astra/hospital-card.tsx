@@ -1,11 +1,13 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { memo } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { StatusPill } from "@/components/astra/ui";
 import type { RankedHospital } from "@/types/astra";
 import { ProvenancePanel } from "@/components/astra/provenance-panel";
 
-export function HospitalCard({ item, emphasis = false, onPress }: { item: RankedHospital; emphasis?: boolean; onPress?: () => void }) {
+// Bolt optimization: Memoize HospitalCard to prevent unnecessary re-renders in FlatList when search query or filter state updates.
+export const HospitalCard = memo(function HospitalCard({ item, emphasis = false, onPress }: { item: RankedHospital; emphasis?: boolean; onPress?: () => void }) {
   const router = useRouter();
   const { hospital, score } = item;
   const ageMinutes = Math.max(1, Math.round((Date.now() - new Date(hospital.dataLastUpdated).getTime()) / 60_000));
@@ -15,7 +17,7 @@ export function HospitalCard({ item, emphasis = false, onPress }: { item: Ranked
     <ProvenancePanel hospital={hospital} capability={score.eligible ? score.reasons[0] : "Clinical gate"} />
     <View style={styles.bottomRow}><View style={styles.freshness}><MaterialIcons name={ageMinutes <= 5 ? "verified" : "history"} size={14} color={ageMinutes <= 5 ? "#1E7A52" : "#A86A00"} /><Text style={styles.freshnessText}>{ageMinutes <= 5 ? "FRESH" : ageMinutes <= 30 ? "AGEING" : "STALE"} · {ageMinutes} min ago · SIMULATED</Text></View><View style={styles.score}><Text style={styles.scoreValue}>{score.overall}%</Text><Text style={styles.scoreLabel}>match</Text></View></View>
   </Pressable>;
-}
+});
 
 const styles = StyleSheet.create({
   card: { backgroundColor: "#FFFFFF", marginHorizontal: 20, marginBottom: 12, padding: 16, borderRadius: 18, borderWidth: 1, borderColor: "#E4EBF1", shadowColor: "#0B2942", shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.04, shadowRadius: 10, elevation: 1 },
