@@ -1,6 +1,6 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Session, User } from "@supabase/supabase-js";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "./supabase";
 
 type AuthValue = { user: User | null; session: Session | null; loading: boolean; configured: boolean; signIn: (email: string, password: string) => Promise<{ error?: string }>; signUp: (email: string, password: string, name: string, role: "patient" | "staff" | "admin") => Promise<{ error?: string }>; signOut: () => Promise<void> };
 const AuthContext = createContext<AuthValue | undefined>(undefined);
@@ -24,11 +24,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
       return error ? { error: error.message } : {};
     },
-    signUp: async (email, password, name, role) => {
+    signUp: async (email, password, name, _requestedRole) => {
       if (!supabase) return { error: "Supabase is not configured." };
-      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role } } });
+      // Security: Restrict public self-registration to 'patient' role to prevent privilege escalation.
+      // Elevated roles ('staff', 'admin') must be provisioned out-of-band by database administrators.
+      const assignedRole = "patient";
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+        options: { data: { name, role: assignedRole } },
+      });
       if (error) return { error: error.message };
-      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role });
+      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role: assignedRole });
       return {};
     },
     signOut: async () => { if (supabase) await supabase.auth.signOut(); },
