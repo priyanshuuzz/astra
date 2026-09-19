@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 
+const hasSupabaseEnv = Boolean(process.env.EXPO_PUBLIC_SUPABASE_URL && process.env.EXPO_PUBLIC_SUPABASE_KEY);
+
 describe("Supabase configuration", () => {
-  it("can reach the configured Auth settings endpoint", async () => {
+  it.skipIf(!hasSupabaseEnv)("can reach the configured Auth settings endpoint", async () => {
     const url = process.env.EXPO_PUBLIC_SUPABASE_URL;
     const key = process.env.EXPO_PUBLIC_SUPABASE_KEY;
     expect(url, "EXPO_PUBLIC_SUPABASE_URL must be configured").toBeTruthy();

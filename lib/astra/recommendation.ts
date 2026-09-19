@@ -9,10 +9,23 @@ const capabilityRequirements: Record<EmergencyType, CapabilityKey[]> = {
 const aliases: Record<CapabilityKey, string[]> = { CT: ["ct"], MRI: ["mri"], ECG: ["ecg"], CathLab: ["cath lab", "cathlab"], Thrombectomy: ["thrombectomy"], Neurology: ["neurology", "stroke care"], Cardiology: ["cardiology"], TraumaCentre: ["trauma centre", "trauma center", "trauma"], EmergencySurgery: ["emergency surgery"], ICU: ["icu", "critical care", "cardiac icu"], PICU: ["picu"], NICU: ["nicu"], BloodBank: ["blood bank"], Dialysis: ["dialysis"], BurnsUnit: ["burn unit", "burns"], VentilatorSupport: ["ventilation", "ventilator", "respiratory icu"], EmergencyDepartment: ["emergency unit", "emergency department", "emergency"], ObstetricEmergency: ["obstetric", "labour emergency"], PediatricEmergency: ["pediatric emergency", "pediatric trauma", "pediatrics"] };
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 const norm = (value: string) => value.toLowerCase().replace(/[×_]/g, " ").trim();
+const DEG_TO_RAD = Math.PI / 180;
 
 export function requiredCapabilities(type: EmergencyType): CapabilityKey[] { return capabilityRequirements[type]; }
-export function distanceKm(origin: Coordinates, destination: Coordinates): number { const radians = (degrees: number) => (degrees * Math.PI) / 180; const earthRadiusKm = 6371; const dLat = radians(destination.latitude - origin.latitude); const dLon = radians(destination.longitude - origin.longitude); const a = Math.sin(dLat / 2) ** 2 + Math.cos(radians(origin.latitude)) * Math.cos(radians(destination.latitude)) * Math.sin(dLon / 2) ** 2; return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); }
-export function freshnessScore(isoDate: string, now = Date.now()): number { const ageMinutes = Math.max(0, (now - new Date(isoDate).getTime()) / 60_000); if (ageMinutes <= 5) return 100; if (ageMinutes <= 15) return 82; if (ageMinutes <= 30) return 56; return 20; }
+
+// ⚡ Bolt: Use pre-calculated DEG_TO_RAD constant to eliminate inner function closure allocations in distance calculation
+export function distanceKm(origin: Coordinates, destination: Coordinates): number {
+  const earthRadiusKm = 6371;
+  const dLat = (destination.latitude - origin.latitude) * DEG_TO_RAD;
+  const dLon = (destination.longitude - origin.longitude) * DEG_TO_RAD;
+  const originLatRad = origin.latitude * DEG_TO_RAD;
+  const destLatRad = destination.latitude * DEG_TO_RAD;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(originLatRad) * Math.cos(destLatRad) * Math.sin(dLon / 2) ** 2;
+  return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+// ⚡ Bolt: Use Date.parse directly to avoid unnecessary heap allocation of Date objects
+export function freshnessScore(isoDate: string, now = Date.now()): number { const ageMinutes = Math.max(0, (now - Date.parse(isoDate)) / 60_000); if (ageMinutes <= 5) return 100; if (ageMinutes <= 15) return 82; if (ageMinutes <= 30) return 56; return 20; }
 export function estimateTravelMinutes(distance: number, traffic: Hospital["traffic"]): number { return Math.max(3, Math.round(distance * 2.25 * ({ light: 1, moderate: 1.35, heavy: 1.85 }[traffic]) + 2)); }
 
 export function isRoutingCandidate(hospital: Hospital): boolean {
@@ -24,11 +37,39 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
 function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+// ⚡ Bolt: Helper to pre-normalize hospital specialties and facilities into a single array
+function getNormalizedHaystack(hospital: Hospital): string[] {
+  const specs = hospital.specialties ?? [];
+  const facs = hospital.facilities ?? [];
+  const haystack: string[] = new Array(specs.length + facs.length);
+  let idx = 0;
+  for (let i = 0; i < specs.length; i++) {
+    haystack[idx++] = norm(specs[i]);
+  }
+  for (let j = 0; j < facs.length; j++) {
+    haystack[idx++] = norm(facs[j]);
+  }
+  return haystack;
+}
+
+function hasCapability(hospital: Hospital, capability: CapabilityKey, prenormalizedHaystack?: string[]): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+  const haystack = prenormalizedHaystack ?? getNormalizedHaystack(hospital);
+  return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias)));
+}
 
 export class HospitalRecommendationEngine {
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {
-    const required = requiredCapabilities(type); const gateFailures = required.filter((capability) => !hasCapability(hospital, capability)); const eligible = isRoutingCandidate(hospital) && gateFailures.length === 0 && hospital.readiness !== "unavailable";
+    const isCandidate = isRoutingCandidate(hospital);
+    const required = requiredCapabilities(type);
+    // ⚡ Bolt: Pre-normalize hospital haystack ONCE per score invocation
+    // instead of re-creating and re-normalizing for every required capability key (up to 5x reduction in allocations and string regex transforms).
+    // Also skip capability processing completely for non-routing candidates.
+    const haystack = isCandidate ? getNormalizedHaystack(hospital) : undefined;
+    const gateFailures = isCandidate ? required.filter((capability) => !hasCapability(hospital, capability, haystack)) : [];
+    const eligible = isCandidate && gateFailures.length === 0 && hospital.readiness !== "unavailable";
     const matched = required.length - gateFailures.length; const clinical = clamp((matched / Math.max(required.length, 1)) * 100); const distance = distanceKm(patientLocation, hospital.location); const eta = estimateTravelMinutes(distance, hospital.traffic); const travel = clamp(100 - eta * 5.4); const readiness = readinessScore(hospital.readiness); const freshness = freshnessScore(hospital.dataLastUpdated, now); const confidence = hospital.verificationStatus === "verified" || hospital.isVerified ? 100 : hospital.verificationStatus === "unverified" ? 45 : 25; const reliability = hospital.isVerified ? 90 : 55; const specialist = clamp(hospital.specialists.some((person) => person.status === "available" || person.status === "on_call") ? 90 : 40); const overall = Math.round(clamp(clinical * scoringWeights.clinical + travel * scoringWeights.travel + readiness * scoringWeights.readiness + confidence * scoringWeights.confidence + reliability * scoringWeights.reliability));
     const reasons = eligible ? [`${matched}/${required.length} required capabilities verified`, `${eta} min estimated travel time`, freshness >= 82 ? "Registry status recently confirmed" : "Registry status is ageing"] : !isRoutingCandidate(hospital) ? ["Not an active verified routing candidate", "ASTRA requires verified capability and coordinate review before routing"] : [`Excluded by hard clinical gate: ${gateFailures.join(", ")}`, "ASTRA will not route to a capability-inadequate facility", `${eta} min estimated travel time`];
     return { hospitalId: hospital.id, overall, clinical: Math.round(clinical), availability: Math.round(readiness), specialist: Math.round(specialist), travel: Math.round(travel), readiness: Math.round(readiness), freshness: Math.round(freshness), distanceKm: Number(distance.toFixed(1)), etaMinutes: eta, reasons, eligible, gateFailures, scoringVersion: SCORING_VERSION };
