@@ -1,0 +1,3 @@
+## 2025-09-20 - WeakMap Caching for String Normalization in Capability Search
+**Learning:** Evaluating hospital capabilities in ASTRA requires searching normalized facility and specialty strings. Re-normalizing specialty/facility arrays for every required capability check on every render created significant string allocation and regex overhead. Caching normalized haystack arrays per hospital reference using `WeakMap` eliminated redundant allocations while preserving immutability and automatic memory management.
+**Action:** Use `WeakMap` to cache derived or normalized string representations of immutable data structures when scoring or filtering lists in React state.
