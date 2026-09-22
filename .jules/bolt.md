@@ -1,0 +1,3 @@
+## 2025-05-18 - Optimized Hospital Recommendation Scoring & Capability Lookups
+**Learning:** In hot loops such as `HospitalRecommendationEngine.rank()` and `score()`, inner function creation (e.g. `radians` closure inside `distanceKm`), array spreading (`[...specialties, ...facilities]`), `.map(norm)` string allocations, and array iteration higher-order functions (`.some()`) create significant garbage collection and CPU overhead when scoring multiple hospitals.
+**Action:** Extract trigonometric constants like `DEG_TO_RAD`, precompute sine values directly, and iterate through specialties and facilities with plain loops to exit early without allocating temporary arrays.
