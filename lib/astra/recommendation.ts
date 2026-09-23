@@ -6,9 +6,15 @@ export const scoringWeights = { clinical: 0.35, travel: 0.30, readiness: 0.15, c
 const capabilityRequirements: Record<EmergencyType, CapabilityKey[]> = {
   cardiac: ["ECG", "Cardiology", "CathLab", "ICU"], stroke: ["CT", "Neurology"], trauma: ["TraumaCentre", "EmergencySurgery", "ICU", "BloodBank", "CT"], respiratory: ["EmergencyDepartment", "ICU", "VentilatorSupport"], bleeding: ["EmergencyDepartment", "BloodBank", "EmergencySurgery"], burns: ["BurnsUnit", "ICU"], obstetric: ["ObstetricEmergency", "EmergencySurgery"], pediatric: ["PediatricEmergency", "PICU"], general: ["EmergencyDepartment"], unknown: ["EmergencyDepartment"],
 };
-const aliases: Record<CapabilityKey, string[]> = { CT: ["ct"], MRI: ["mri"], ECG: ["ecg"], CathLab: ["cath lab", "cathlab"], Thrombectomy: ["thrombectomy"], Neurology: ["neurology", "stroke care"], Cardiology: ["cardiology"], TraumaCentre: ["trauma centre", "trauma center", "trauma"], EmergencySurgery: ["emergency surgery"], ICU: ["icu", "critical care", "cardiac icu"], PICU: ["picu"], NICU: ["nicu"], BloodBank: ["blood bank"], Dialysis: ["dialysis"], BurnsUnit: ["burn unit", "burns"], VentilatorSupport: ["ventilation", "ventilator", "respiratory icu"], EmergencyDepartment: ["emergency unit", "emergency department", "emergency"], ObstetricEmergency: ["obstetric", "labour emergency"], PediatricEmergency: ["pediatric emergency", "pediatric trauma", "pediatrics"] };
-const clamp = (value: number) => Math.max(0, Math.min(100, value));
+const rawAliases: Record<CapabilityKey, string[]> = { CT: ["ct"], MRI: ["mri"], ECG: ["ecg"], CathLab: ["cath lab", "cathlab"], Thrombectomy: ["thrombectomy"], Neurology: ["neurology", "stroke care"], Cardiology: ["cardiology"], TraumaCentre: ["trauma centre", "trauma center", "trauma"], EmergencySurgery: ["emergency surgery"], ICU: ["icu", "critical care", "cardiac icu"], PICU: ["picu"], NICU: ["nicu"], BloodBank: ["blood bank"], Dialysis: ["dialysis"], BurnsUnit: ["burn unit", "burns"], VentilatorSupport: ["ventilation", "ventilator", "respiratory icu"], EmergencyDepartment: ["emergency unit", "emergency department", "emergency"], ObstetricEmergency: ["obstetric", "labour emergency"], PediatricEmergency: ["pediatric emergency", "pediatric trauma", "pediatrics"] };
+
+// Pre-normalize alias strings once at module load to avoid repeated lowercasing/regex during engine scoring loops
 const norm = (value: string) => value.toLowerCase().replace(/[×_]/g, " ").trim();
+const normalizedAliases: Record<CapabilityKey, string[]> = Object.fromEntries(
+  Object.entries(rawAliases).map(([key, list]) => [key, list.map(norm)])
+) as Record<CapabilityKey, string[]>;
+
+const clamp = (value: number) => Math.max(0, Math.min(100, value));
 
 export function requiredCapabilities(type: EmergencyType): CapabilityKey[] { return capabilityRequirements[type]; }
 export function distanceKm(origin: Coordinates, destination: Coordinates): number { const radians = (degrees: number) => (degrees * Math.PI) / 180; const earthRadiusKm = 6371; const dLat = radians(destination.latitude - origin.latitude); const dLon = radians(destination.longitude - origin.longitude); const a = Math.sin(dLat / 2) ** 2 + Math.cos(radians(origin.latitude)) * Math.cos(radians(destination.latitude)) * Math.sin(dLon / 2) ** 2; return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); }
@@ -24,7 +30,30 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
 function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+// Optimization: Check structured attestation first. If uncertified, search normalized text entries without allocating intermediate arrays on every iteration.
+function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+
+  const capabilityAliases = normalizedAliases[capability];
+  const specialties = hospital.specialties;
+  const facilities = hospital.facilities;
+
+  for (let i = 0; i < capabilityAliases.length; i++) {
+    const alias = capabilityAliases[i];
+
+    for (let j = 0; j < specialties.length; j++) {
+      if (norm(specialties[j]).includes(alias)) return true;
+    }
+
+    for (let k = 0; k < facilities.length; k++) {
+      if (norm(facilities[k]).includes(alias)) return true;
+    }
+  }
+
+  return false;
+}
 
 export class HospitalRecommendationEngine {
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {

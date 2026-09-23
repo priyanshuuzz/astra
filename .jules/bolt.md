@@ -1,0 +1,3 @@
+## 2025-05-18 - Pre-normalized Capability Aliases in ASTRA Scoring Engine
+**Learning:** In ASTRA's clinical routing engine, `hasCapability` was repeatedly mapping and lowercasing capability aliases and creating combined haystack arrays (`[...specialties, ...facilities].map(...)`) on every hospital scoring pass. Pre-normalizing aliases at module initialization and evaluating specialties/facilities directly eliminates unnecessary array allocations and string transformations per scoring iteration.
+**Action:** Always pre-normalize static metadata lookup maps outside hot execution loops instead of lowercasing/re-mapping strings inside array predicates during UI or scoring computations.
