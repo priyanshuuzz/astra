@@ -39,7 +39,7 @@ export function SectionHeading({ eyebrow, title, action }: { eyebrow?: string; t
 }
 
 export function SafetyNotice({ compact = false }: { compact?: boolean }) {
-  return <View style={[styles.notice, compact && { marginHorizontal: 0, marginTop: 10 }]}><MaterialIcons name="local-hospital" size={18} color="#A86A00" /><Text style={styles.noticeText}>In a life-threatening emergency, contact your local emergency service immediately.</Text></View>;
+  return <View accessibilityRole="alert" accessibilityLabel="Safety Notice: In a life-threatening emergency, contact your local emergency service immediately." style={[styles.notice, compact && { marginHorizontal: 0, marginTop: 10 }]}><MaterialIcons name="local-hospital" size={18} color="#A86A00" aria-hidden={true} /><Text style={styles.noticeText}>In a life-threatening emergency, contact your local emergency service immediately.</Text></View>;
 }
 
 export function Metric({ label, value, icon, tint = "#0B78C6" }: { label: string; value: string; icon: keyof typeof MaterialIcons.glyphMap; tint?: string }) {
