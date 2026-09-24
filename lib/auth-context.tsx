@@ -26,9 +26,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     },
     signUp: async (email, password, name, role) => {
       if (!supabase) return { error: "Supabase is not configured." };
-      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role } } });
+      // SECURITY: Public self-registration must strictly restrict assigned role to 'patient'
+      // to prevent client-side privilege escalation (e.g. attempting to sign up as 'admin' or 'staff').
+      const assignedRole = "patient";
+      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role: assignedRole } } });
       if (error) return { error: error.message };
-      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role });
+      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role: assignedRole });
       return {};
     },
     signOut: async () => { if (supabase) await supabase.auth.signOut(); },
