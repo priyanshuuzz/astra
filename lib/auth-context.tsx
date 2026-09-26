@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 
@@ -24,11 +24,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
       return error ? { error: error.message } : {};
     },
-    signUp: async (email, password, name, role) => {
+    signUp: async (email, password, name, _requestedRole) => {
       if (!supabase) return { error: "Supabase is not configured." };
-      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role } } });
+      // Security: Public user self-registration must strictly assign 'patient' role
+      // to prevent client-side privilege escalation (e.g., self-assigning 'staff' or 'admin').
+      const assignedRole = "patient";
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password,
+        options: { data: { name, role: assignedRole } },
+      });
       if (error) return { error: error.message };
-      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role });
+      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role: assignedRole });
       return {};
     },
     signOut: async () => { if (supabase) await supabase.auth.signOut(); },
