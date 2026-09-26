@@ -7,11 +7,33 @@ const capabilityRequirements: Record<EmergencyType, CapabilityKey[]> = {
   cardiac: ["ECG", "Cardiology", "CathLab", "ICU"], stroke: ["CT", "Neurology"], trauma: ["TraumaCentre", "EmergencySurgery", "ICU", "BloodBank", "CT"], respiratory: ["EmergencyDepartment", "ICU", "VentilatorSupport"], bleeding: ["EmergencyDepartment", "BloodBank", "EmergencySurgery"], burns: ["BurnsUnit", "ICU"], obstetric: ["ObstetricEmergency", "EmergencySurgery"], pediatric: ["PediatricEmergency", "PICU"], general: ["EmergencyDepartment"], unknown: ["EmergencyDepartment"],
 };
 const aliases: Record<CapabilityKey, string[]> = { CT: ["ct"], MRI: ["mri"], ECG: ["ecg"], CathLab: ["cath lab", "cathlab"], Thrombectomy: ["thrombectomy"], Neurology: ["neurology", "stroke care"], Cardiology: ["cardiology"], TraumaCentre: ["trauma centre", "trauma center", "trauma"], EmergencySurgery: ["emergency surgery"], ICU: ["icu", "critical care", "cardiac icu"], PICU: ["picu"], NICU: ["nicu"], BloodBank: ["blood bank"], Dialysis: ["dialysis"], BurnsUnit: ["burn unit", "burns"], VentilatorSupport: ["ventilation", "ventilator", "respiratory icu"], EmergencyDepartment: ["emergency unit", "emergency department", "emergency"], ObstetricEmergency: ["obstetric", "labour emergency"], PediatricEmergency: ["pediatric emergency", "pediatric trauma", "pediatrics"] };
+
 const clamp = (value: number) => Math.max(0, Math.min(100, value));
 const norm = (value: string) => value.toLowerCase().replace(/[×_]/g, " ").trim();
 
+// ⚡ Bolt Optimization: Pre-normalize aliases at module initialization to avoid repeated string lowercasing and regex replacement
+const normalizedAliases: Record<CapabilityKey, string[]> = Object.fromEntries(
+  Object.entries(aliases).map(([key, list]) => [key, list.map(norm)])
+) as Record<CapabilityKey, string[]>;
+
+// ⚡ Bolt Optimization: Use WeakMap for caching normalized hospital haystacks safely without mutating the hospital object
+const hospitalHaystackCache = new WeakMap<Hospital, string[]>();
+
+// ⚡ Bolt Optimization: Pre-calculate constants for haversine distance formula to avoid inline closures & repeated conversions
+const DEG2RAD = Math.PI / 180;
+const EARTH_RADIUS_KM_X_2 = 12742;
+
 export function requiredCapabilities(type: EmergencyType): CapabilityKey[] { return capabilityRequirements[type]; }
-export function distanceKm(origin: Coordinates, destination: Coordinates): number { const radians = (degrees: number) => (degrees * Math.PI) / 180; const earthRadiusKm = 6371; const dLat = radians(destination.latitude - origin.latitude); const dLon = radians(destination.longitude - origin.longitude); const a = Math.sin(dLat / 2) ** 2 + Math.cos(radians(origin.latitude)) * Math.cos(radians(destination.latitude)) * Math.sin(dLon / 2) ** 2; return earthRadiusKm * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); }
+
+export function distanceKm(origin: Coordinates, destination: Coordinates): number {
+  const dLat = (destination.latitude - origin.latitude) * DEG2RAD;
+  const dLon = (destination.longitude - origin.longitude) * DEG2RAD;
+  const lat1 = origin.latitude * DEG2RAD;
+  const lat2 = destination.latitude * DEG2RAD;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) ** 2;
+  return EARTH_RADIUS_KM_X_2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 export function freshnessScore(isoDate: string, now = Date.now()): number { const ageMinutes = Math.max(0, (now - new Date(isoDate).getTime()) / 60_000); if (ageMinutes <= 5) return 100; if (ageMinutes <= 15) return 82; if (ageMinutes <= 30) return 56; return 20; }
 export function estimateTravelMinutes(distance: number, traffic: Hospital["traffic"]): number { return Math.max(3, Math.round(distance * 2.25 * ({ light: 1, moderate: 1.35, heavy: 1.85 }[traffic]) + 2)); }
 
@@ -24,7 +46,29 @@ export function isRoutingCandidate(hospital: Hospital): boolean {
   return promoted && hospital.isVerified && verificationAllowed && validCoordinates;
 }
 function readinessScore(readiness: Hospital["readiness"]): number { return { ready: 100, limited: 58, unavailable: 0, unknown: 30 }[readiness]; }
-function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean { const attestation = hospital.capabilities?.[capability]; if (attestation) return attestation.available && attestation.verificationStatus !== "expired"; const haystack = [...hospital.specialties, ...hospital.facilities].map(norm); return aliases[capability].some((alias) => haystack.some((entry) => entry.includes(alias))); }
+
+function hasCapability(hospital: Hospital, capability: CapabilityKey): boolean {
+  const attestation = hospital.capabilities?.[capability];
+  if (attestation) return attestation.available && attestation.verificationStatus !== "expired";
+
+  // ⚡ Bolt Optimization: Lazy-cache normalized specialty and facility strings safely via WeakMap to avoid mutating input objects
+  let haystack = hospitalHaystackCache.get(hospital);
+  if (!haystack) {
+    haystack = [...hospital.specialties, ...hospital.facilities].map(norm);
+    hospitalHaystackCache.set(hospital, haystack);
+  }
+
+  const capAliases = normalizedAliases[capability];
+  if (!capAliases) return false;
+
+  for (let i = 0; i < capAliases.length; i++) {
+    const alias = capAliases[i];
+    for (let j = 0; j < haystack.length; j++) {
+      if (haystack[j].includes(alias)) return true;
+    }
+  }
+  return false;
+}
 
 export class HospitalRecommendationEngine {
   score(type: EmergencyType, patientLocation: Coordinates, hospital: Hospital, now = Date.now()): HospitalScore {
