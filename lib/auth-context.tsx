@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState, type ReactNode
 import type { Session, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 
-type AuthValue = { user: User | null; session: Session | null; loading: boolean; configured: boolean; signIn: (email: string, password: string) => Promise<{ error?: string }>; signUp: (email: string, password: string, name: string, role: "patient" | "staff" | "admin") => Promise<{ error?: string }>; signOut: () => Promise<void> };
+type AuthValue = { user: User | null; session: Session | null; loading: boolean; configured: boolean; signIn: (email: string, password: string) => Promise<{ error?: string }>; signUp: (email: string, password: string, name: string, role?: "patient" | "staff" | "admin") => Promise<{ error?: string }>; signOut: () => Promise<void> };
 const AuthContext = createContext<AuthValue | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -24,11 +24,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
       return error ? { error: error.message } : {};
     },
-    signUp: async (email, password, name, role) => {
+    // Security: Public self-registration must strictly restrict assigned role to 'patient' to prevent privilege escalation.
+    signUp: async (email, password, name) => {
       if (!supabase) return { error: "Supabase is not configured." };
-      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role } } });
+      const assignedRole = "patient";
+      const { data, error } = await supabase.auth.signUp({ email: email.trim(), password, options: { data: { name, role: assignedRole } } });
       if (error) return { error: error.message };
-      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role });
+      if (data.user) await supabase.from("profiles").upsert({ id: data.user.id, name, role: assignedRole });
       return {};
     },
     signOut: async () => { if (supabase) await supabase.auth.signOut(); },
