@@ -2,7 +2,7 @@ import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useRouter } from "expo-router";
 import { useMemo, useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { AstraScreen, DemoPill, SectionHeading } from "@/components/astra/ui";
+import { AstraScreen, DemoPill, SectionHeading, StatusPill } from "@/components/astra/ui";
 import { HospitalCard } from "@/components/astra/hospital-card";
 import { useAstra } from "@/lib/astra/store";
 import { HospitalRecommendationEngine } from "@/lib/astra/recommendation";
