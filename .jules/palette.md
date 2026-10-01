@@ -1,0 +1,3 @@
+## 2025-05-18 - Bed Management Stepper Accessibility & Feedback
+**Learning:** Custom steppers (such as bed availability increment/decrement controls) implemented with bare `<Pressable>` elements lack accessibility role, accessible labels, disabled states, and tactile feedback. Screen readers cannot discern what `+` or `−` modify without explicit labels and live regions.
+**Action:** Always provide `accessibilityRole="button"`, explicit `accessibilityLabel` (e.g. "Increase ICU beds"), `disabled` and `aria-disabled` states, `haptic.light()` feedback on press, and `accessibilityLiveRegion="polite"` on numeric count indicators.
