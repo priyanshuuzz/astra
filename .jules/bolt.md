@@ -1,0 +1,3 @@
+## 2025-10-02 - React Native List Rendering Optimization with React.memo & useCallback
+**Learning:** Memoizing computed hospital ranking data (`useMemo`) in `app/hospitals.tsx` was ineffective at preventing re-renders during search typing because `HospitalCard` list item components were not memoized with `React.memo` and `FlatList` used an inline `renderItem` prop. This forced every card component and its child trees (`ProvenancePanel`, `StatusPill`, date formatting) to re-render on every keystroke.
+**Action:** Always pair `useMemo` on list data with `React.memo` on list item components and a `useCallback` for `FlatList.renderItem` to prevent full list re-renders.
